@@ -1,0 +1,275 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Bangladesh Hajj Management Portal</title>
+
+<!--[if IE]><link href="css/ie.css" rel="stylesheet" type="text/css" /><![endif]--> 
+<!--[if IE 6]><script src="js/ie6PngFix.js"></script><![endif]--> 
+<link href="css/cssreset.css" rel="stylesheet"  media="screen" type="text/css" />
+<link href="style.css" rel="stylesheet"  type="text/css"/>
+<link href="css/media.css" rel="stylesheet"  media="screen" type="text/css"/>
+<script type="text/javascript">
+
+$(function(){
+if(typeof document.body.style.maxHeight === "undefined") {
+	alert('Please use at least IE8 or comptible browser to run this demo!');
+} 
+});
+</script>
+
+
+
+<!-- Bootstrap core CSS -->
+<link href="css/carousel.css" rel="stylesheet">
+ <link href="css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+<body>
+<div class="container">
+	<div class="row">
+    <div class="all_wrapper_shadow">
+        <div class="all_wrapper_white">
+        	<div class="col-lg-12 header_wrapper"> <!-- Begin: header_Wrapper -->
+                <div id="col-lg-12 header_inner"><!-- Begin: header_inner -->
+                    <div class="col-lg-8 branding">
+                        <a href="#"><img src="images/interface/hms_logo.png" alt="Hajj Management Logo" width="345"></a>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="font-text">
+                            <a href="#">বাংলা</a>
+                        </div>
+                        <!--<div class="font-option">
+                            <a href="#"><img src="images/interface/font.png" alt="Font"></a>
+                        </div>-->
+                        <div class="search-option">
+                             <input  name="search" class="searchtext" value="Search" onFocus="if(value=='Search')this.value=''" onBlur="if(value=='') this.value='Search'">
+                            <input type="button" name="btn" value="" class="searchbtn">
+                        </div>
+                        <!--<div class="over-view">
+                            <p>Overview of IT Cells</p>
+                        </div>-->
+                    </div>
+                </div><!-- End: header_inner -->
+                <div class="col-lg-12 navigation-bar"><!-- Begin:navigation -->
+                    <div id='cssmenu'>
+                        <ul>
+                           <li class='activee'><a href='index.html'><span>Home</span></a></li>
+                           <li><a href='pages.html'><span>News and Info</span></a></li>
+                           <li><a href='#'><span>Hajj Tips</span></a></li>
+                           <li><a href='#'><span>Death News</span></a></li>
+                           <li><a href='#'><span>Statistics</span></a></li>
+                           <li><a href='#'><span>Contact Us</span></a></li>
+                           <li class='last'><a href='#'><span>Feedback</span></a></li>
+                        </ul>
+                    </div>
+            </div><!-- End: navigation -->
+          </div><!-- End: header_Wrapper -->
+       	 
+        
+             <div class="col-lg-12 banner_wrapper"><!-- Begin: banner_wrapper -->
+                <div class="col-lg-9 banner_center"> <!-- Begin: banner_Center -->
+                    
+                    <!-- Carousel
+                    ================================================== -->
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                      <!-- Indicators -->
+                      <ol class="carousel-indicators">
+                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                        <li data-target="#myCarousel" data-slide-to="1"></li>
+                        <li data-target="#myCarousel" data-slide-to="2"></li>
+                      </ol>
+                      <div class="carousel-inner">
+                        <div class="item active">
+                          <img src="images/banner/banner.jpg" alt="First slide" height="265">
+                          <div class="container">
+                            <div class="carousel-caption">
+                              <p>Note: If you're viewing this page via a <code>file://</code> URL, the "next" and "previous" Glyphicon buttons on the left and right might not load/display properly due to web browser security rules.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="images/banner/banner.png" height="265" alt="Second slide">
+                          <div class="container">
+                            <div class="carousel-caption">
+                              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="item">
+                          <img src="images/banner/banner1.jpg" height="265" alt="Third slide">
+                          <div class="container">
+                            <div class="carousel-caption">
+                              <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+                      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+                    </div><!-- /.carousel -->
+                    
+                </div>  <!-- End: banner_Center --> 
+                
+                <div class="col-lg-3 msg-list">
+                        <div class="cont-header"><h2>Messages</h2></div>
+                            <ul>
+                                <li>
+                                    <a href="#">
+                                        <div class="messages">
+                                            <img src="images/interface/shak-hasina.png" alt="Shak Hasina">
+                                            <h5>Sheikh Hasina</h5>
+                                            <p>Prime  Minister</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="messages">
+                                            <img src="images/interface/matior.png" alt="Shak Hasina">
+                                            <h5 class="big">Principal Matior Rahman</h5>
+                                            <p>Minister</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <div class="messages">
+                                            <img src="images/interface/babul.png" alt="Shak Hasina">
+                                            <h5 class="big">Chowdhury Md.Babul Hassan</h5>
+                                            <p>Secretary</p>
+                                        </div>
+                                    </a>
+                                </li>
+                                
+                             </ul> 
+                       </div>
+                 
+            </div><!-- End: banner_wrapper -->
+        
+             	<div class="col-lg-12  mainPage_wrapper"><!-- Begin: mainPage_wrapper -->
+                <div class="mainPage_inner"><!-- Begin: mainPage_inner -->
+                
+                     <div class="col-lg-3  sidebar-left"><!-- Begin: sidebar left -->
+                        <div class="cont-list">
+                            <div class="cont-header"><h2>Resources</h2></div>
+                            <ul>
+                                <li><a href="#">Daily Hajj Bulletin</a></li>
+                                <li><a href="#">Agency Information</a></li>
+                                <li><a href="#">Pilgrim Search</a></li>
+                                <li><a href="#">Flight Schedule</a></li>
+                                <li><a href="#">Flight Status</a></li>
+                                <li><a href="#">Hajj Documentary</a></li>
+                                <li class="active"><a href="hms/index.html" target="_blank">Login(HMS)</a></li>
+                                <li><a href="#">Login(Email)</a></li>
+                                <li><a href="#">Direction Map</a></li>
+                                <li><a href="#">Photo Gallery</a></li>
+                                <li><a href="#">Important Links</a></li>
+                                <li><a href="#">Disclaimer</a></li>
+                                <li><a href="#">Privacy Policy</a></li>
+                            </ul>
+                        </div>
+                         <div class="services1">
+                            <div class="cont-header"><h2>Newsletter</h2></div>
+                            <div id="newsletter">
+                                <input type="text" name="name" class="inputText input_up" />
+                                <input type="email" name="email" class="inputText" />
+                                <input type="submit" value="Submit" name="" class="send" />
+                            </div>
+                       </div>
+                        
+                     </div><!-- End: sidebar left -->
+                
+                     <div class="col-lg-6 content"><!-- Begin: content -->
+                        <div id="cont-top">
+                            <h2> Are you Bangladeshi Hajj pilgrim?</h2>
+                        </div>
+                        <div id="passage">
+                        
+                            <div class="paragraph">
+                                <h3><a href="pages.html">Dr. Bandar meets Bangladeshi Delegation</a></h3>
+                                <p class="cont-image"><img src="images/interface/ImgBangladsh.jpg" width="185" alt="Image"></p>
+                                <p>His Highness the Minister of Hajj, Dr. Bandar ibn Muhammad Hajjar, met the Bangladeshi Hajj delegation, headed by His Highness Mr. Muhammad Muti` Al-Rahman, the Minister of State for Religious Affairs in the government </p>
+            
+                                <span><a href="pages.html">Details</a></span>
+                            </div>	
+                            <div class="paragraph">
+                                <h3><a href="#">Emergency notification related to 2014 (1435 AH) Hajj</a></h3>
+                                <p>In 2014 (1435 AH) in details of evaluation of activities so far completed with regard to the steps taken on Hajj management to the year 2014 with meeting held on 01.10. 2013 and time 10.00 PM in the Bangladesh Hajj office, Makkah.</p>
+                                <span><a href="#">Details</a></span>
+                            </div>
+                            
+                             <div class="paragraph">
+                                <h3><a href="#">Health cards for pilgrims</a></h3>
+                                <p><img src="images/interface/health.png" alt="Hajj">Many of the pilgrims come to Hajj Office in Makkah and Madina Hajj Mission for medical aid.  The Doctors prescribes medication.  As experienced, the patient lost their prescription and comes for medical services. ame again to get medical aid </p>
+                                <span><a href="#">Details</a></span>
+                            </div>
+                            
+                        </div>   
+                    </div><!-- End: content -->
+                
+                    <div class="col-md-3 sidebar-right"><!-- Begin: sidebar Right -->
+                          
+                       <div class="services">
+                            <div class="cont-header"><h2>Resources</h2></div>
+                            <div class="services-list">
+                                <ul>
+                                    <li><a href="#">Apply Online</a></li>
+                                    <li  class="active"><a href="#">Hajj Package - 2014</a></li>
+                                    <li><a href="#">Hajj Form - 2014</a></li>
+                                    <li><a href="#">Hajj Policy 2010 - 2014</a></li>
+                                    <li><a href="#">Instruction to Agents</a></li>
+                                    <li><a href="#">Attention to Pilgrims</a></li>
+                                </ul>
+                            </div>	
+                       </div>
+                       
+                       <div class="services1 weather">
+                            <div class="cont-header"><h2>Weather News</h2></div>
+                            <a href="http://www.timeanddate.com/weather/saudi-arabia/jeddah" target="_blank"> <img src= "images/interface/wicon.png ">Dhaka</a>
+                            <a href="http://www.timeanddate.com/weather/saudi-arabia/makkah" target="_blank"> <img src= "images/interface/wicon.png" >Makka</a>
+                            <a href="http://www.timeanddate.com/weather/saudi-arabia/medina" target="_blank"> <img src= "images/interface/wicon.png ">Madina</a>
+                       </div>
+                       
+                       <div class="services1">
+                        <div class="cont-header"><h2>FeedBack</h2></div>
+                        <p>This site is being updated regularly by different stakeholder. Your suggestions to improve the site will be highly 			                   appreciated. Please send us the suggestions to<a href="#"> info@hajj.gov.bd</a>
+                        </p>
+                       </div>
+                       <div class="google-play">
+                            <a href="#"><img src="images/interface/google.png" alt="google Play"></a>
+                        </div>
+                       
+                    </div><!-- End: sidebar Right -->
+                    
+                </div><!-- End: mainPage_inner -->
+            </div><!-- End: mainPage_wrapper -->
+    	</div>
+    
+    <div class="footer_wrapper"><!-- Begin: footer_Wrapper -->
+        <div class="col-lg-12 footer_inner"><!-- Begin: footer_Inner -->
+            <div id="footer-inner">
+                <p>Managed by
+                <span><a href="#"> Business Automation Ltd</a></span> 
+                on behalf of Ministry Of Religious Affairs<br />IT Help Desk Phone#: +8801929994555, +88027912125 email:
+                <a href="#">info@hajj.gov.bd </a>
+                </p>
+            </div>
+        </div><!-- End: footer_inner -->
+        
+    </div><!-- End: footer_Wrapper -->
+    
+    </div>
+    </div>
+</div>
+
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
+                 
