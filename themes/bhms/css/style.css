@@ -5,6 +5,7 @@
   1. Theme Default CSS (body, link color, section etc)
   2. Header Area
    2.1 Stick menu Area
+   2.2 Header Slider Info
   3. About Area
   4.Services Area
   5.Skill Area
@@ -22,6 +23,7 @@
   17.Home Page 3  CSS
   18.Blog CSS
   17.Blog Details CSS
+  18. Agency
 
 -----------------------------------------------------------------------------------*/
 
@@ -450,6 +452,37 @@ div#preloader {
 
 .stick .navbar-default .navbar-toggle {
   padding: 10px 0px;
+}
+
+/*------------------------------
+  2.2. Header Info
+--------------------------------*/
+.slider-info {
+  position: absolute;
+  bottom: 40px;
+  z-index: 100;
+  left: 5%;
+  right: 5%;
+}
+.slider-info-inner {
+  text-align: left;
+}
+.slider-info-inner h4 {
+  font-size: 18px;
+  font-weight: 500;
+  color: #fff;
+  margin-bottom: 0;
+}
+.slider-info-time {
+  color: #E9C94C;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: normal;
+  font-style: normal;
+}
+.slider-info-text {
+  color: #fff;
+  padding: 0 10px 0 3px;
 }
 
 /*------------------------------
@@ -2396,12 +2429,12 @@ span.email-notes {
 .top-search-form{
 	position:relative;
 	float:right;
-	margin: 6px 0;
+	margin: 0;
 }
-.top-search{margin-top:12px;padding-left:30px;}
+.top-search{margin-top:0px;padding-left:30px;}
 .top-search-form .search-button{
 	position: absolute;
-    top: 14px;
+    top: 2px;
     left: 2px;
 	float: left;
     background: #fff;
@@ -2656,10 +2689,10 @@ ul.application-step {
     background: none repeat scroll 0 0 #18954D;
     border-radius: 0 0 6px 6px;
     color: #FFFFFF;
-    margin-left: 20px;
-    margin-top: -5px;
+    margin-left: 0px;
+    margin-top: 0px;
     padding: 1px 4px;
-	margin-right: 22px;
+	margin-right: 0px;
 }
 .topLanguage select {
     background: none repeat scroll 0 0 #18954D !important;
@@ -2668,6 +2701,77 @@ ul.application-step {
     color: #FFFFFF;
     padding: 1px 3px 1px;
 }
+
+/*----------------------------------------*/
+/*  18.  Agency CSS
+/*----------------------------------------*/
+#agency {
+  padding: 40px 0px 0px;
+}
+.agency-heading {
+  padding: 15px;
+}
+.agency-heading h2 {
+  line-height: normal;
+  font-size: 26px;
+  color: #222222;
+  opacity: 0.87;
+  font-weight: bold;
+}
+.agent-table {
+background: #FFFFFF;
+border: 1px solid rgba(0, 0, 0, 0.08);
+box-sizing: border-box;
+border-radius: 8px;
+}
+.agent-table-title {
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  font-size: 26px;
+  color: #2F80ED;
+  padding: 15px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+.agent-table-body {
+  padding: 15px;
+  font-size: 18px;
+  color: #061933;
+}
+
+.agent-table-body>.table>tbody>tr>th, .agent-table-body>.table>tbody>tr>td {
+  border-top: 0px solid rgba(0,0,0,0);
+}
+
 /*----------------------------------------
  .End CSS
 ----------------------------------------*/
+.  {
+  background: #F1F1F1;
+}
+.weather-inner {
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 20px; 
+}
+.weather-text {
+  font-style: normal;
+  font-weight: normal;
+  line-height: normal;
+  font-size: 20px;
+  color: #021020;
+}
+.weather-count {
+font-style: normal;
+font-weight: normal;
+line-height: normal;
+font-size: 40px;
+text-align: right;
+color: #021020;
+}
+.custom-nav-right li {
+  float: left;
+    padding: 15px 10px;
+}
