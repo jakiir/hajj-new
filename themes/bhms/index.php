@@ -111,7 +111,7 @@ get_header();
 			</div>
 			<div class="col-md-4">
 				<div class="slider-info-inner">
-					<h4>Haj Flight Starts in</h4>
+					<h4>Haj Starts in</h4>
 					<p>
 						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
 						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
@@ -121,7 +121,7 @@ get_header();
 			</div>
 			<div class="col-md-4">
 				<div class="slider-info-inner">
-					<h4>Haj Flight Starts in</h4>
+					<h4>Return Flight Starts in</h4>
 					<p>
 						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
 						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
