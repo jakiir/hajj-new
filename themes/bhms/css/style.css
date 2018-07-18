@@ -2691,7 +2691,6 @@ ul.application-step {
 .pilgrim-feed img{height:120px;}
 .topLanguage{
 	float: right;
-<<<<<<< HEAD
   background: none repeat scroll 0 0 #18954D;
   border-radius: 0 0 6px 6px;
   color: #FFFFFF;
@@ -2699,15 +2698,6 @@ ul.application-step {
   margin-top: 0px;
   padding: 1px 4px;
   margin-right: 0px;
-=======
-    background: none repeat scroll 0 0 #18954D;
-    border-radius: 0 0 6px 6px;
-    color: #FFFFFF;
-    margin-left: 0px;
-    margin-top: 0px;
-    padding: 1px 4px;
-	margin-right: 0px;
->>>>>>> 62f0281c92627fcfba523ed1484f686f58e2d878
 }
 .topLanguage select {
   background: none repeat scroll 0 0 #18954D !important;
@@ -3018,7 +3008,6 @@ border-radius: 8px;
 .agent-table-body>.table>tbody>tr>th, .agent-table-body>.table>tbody>tr>td {
   border-top: 0px solid rgba(0,0,0,0);
 }
-
 /*----------------------------------------
  21. Form Download CSS
 ----------------------------------------*/
@@ -3231,7 +3220,6 @@ background-color: #FF7929;
   line-height: 19px;
   color: rgba(0,0,0,0.6);
 }
-
 /*----------------------------------------
  .End CSS
 ----------------------------------------*/

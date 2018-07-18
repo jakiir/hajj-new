@@ -148,10 +148,14 @@
 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJIbxO_nt_3juVyVtQtqd9vmCLB7MfbcE"></script>
   <!-- Contact Form JavaScript File -->
   <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/contactform/contactform.js"></script>
-
+  <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/js/moment.js"></script>
+  <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/js/moment-timezone.min.js"></script>
+  <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/js/moment-timezone-with-data.min.js"></script>
   <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/js/main.js"></script>
-  
-
+  <script type="text/javascript">
+	window.onload = date_time('bn-clock','Asia/Dhaka');
+	window.onload = date_time('ksa-clock','Asia/Riyadh');
+  </script>
   <?php wp_footer(); ?>
 </body>
 </html>
