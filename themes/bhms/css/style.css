@@ -26,6 +26,10 @@
   18. Agency CSS
   19. Comment CSS
   20. Pilgrim CSS
+  21. Form Download CSS
+  22. Faq CSS
+  23 Notice Board Section CSS
+  24. Gallery Section CSS
 
   -----------------------------------------------------------------------------------*/
 
@@ -2687,7 +2691,6 @@ ul.application-step {
 .pilgrim-feed img{height:120px;}
 .topLanguage{
 	float: right;
-<<<<<<< HEAD
   background: none repeat scroll 0 0 #18954D;
   border-radius: 0 0 6px 6px;
   color: #FFFFFF;
@@ -2695,15 +2698,6 @@ ul.application-step {
   margin-top: 0px;
   padding: 1px 4px;
   margin-right: 0px;
-=======
-    background: none repeat scroll 0 0 #18954D;
-    border-radius: 0 0 6px 6px;
-    color: #FFFFFF;
-    margin-left: 0px;
-    margin-top: 0px;
-    padding: 1px 4px;
-	margin-right: 0px;
->>>>>>> 62f0281c92627fcfba523ed1484f686f58e2d878
 }
 .topLanguage select {
   background: none repeat scroll 0 0 #18954D !important;
@@ -3014,7 +3008,218 @@ border-radius: 8px;
 .agent-table-body>.table>tbody>tr>th, .agent-table-body>.table>tbody>tr>td {
   border-top: 0px solid rgba(0,0,0,0);
 }
+/*----------------------------------------
+ 21. Form Download CSS
+----------------------------------------*/
+#form-download-section {
+  padding: 45px 0;
+}
+.form-download h2 {
+  font-size: 30px;
+  line-height: 36px;
+  color: rgba(0,0,0,0.87);
+  padding-bottom: 15px;
+}
+.form-download-table thead > tr > th {
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(0,0,0,0.6);
+}
+.form-download-table tbody > tr > td {
+  font-size: 16px;
+  line-height: 26px;
+  color: rgba(0,0,0,0.87);
+}
 
+/*----------------------------------------
+ 22. Faq CSS
+----------------------------------------*/
+#faq-section {
+  padding: 45px 0;
+}
+.faq-section {
+  color: rgba(0,0,0,0.6);
+}
+.faq-section h2 {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 41px;
+  color: rgba(0,0,0,0.87);
+}
+.faq-section h4 {
+  color: #333333; 
+}
+.plus-minus {
+  padding-right: 5px;
+}
+.faq-section a:hover {
+  color: #18964E;
+}
+.faq-btn {
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 22px;
+  color: rgba(0,0,0,0.87);
+}
+.faq-btn:hover {
+  color: rgba(0,0,0,0.6)!important;
+}
+.padtop10 {
+  padding-top: 10px;
+}
+
+/*----------------------------------------
+ 23 Notice Board CSS
+----------------------------------------*/
+#notice-board-section {
+  padding: 45px 0;
+  background-color: #F9F9FA;
+}
+.notice-board-side-menu {
+  margin-top: 150px;
+}
+.notice-board-side-menu > li {
+  display: block;
+  padding: 10px 15px;
+  margin-bottom: -1px;
+  background-color: #F9F9FA;
+}
+.notice-board-side-menu > li > a {
+  font-size: 18px;
+  line-height: 21px;
+  color: rgba(0,0,0,0.6);
+}
+.notice-board-side-menu > li > a:hover {
+  color: rgba(0,0,0,0.87);
+}
+.notice-board-side-menu > li.active {
+background-color: #fff;
+border-left: 5px solid #18964E;
+border-top-left-radius: 8px;
+border-bottom-left-radius: 8px;
+border-top: 1px solid rgba(0,0,0,0.035);
+border-bottom: 1px solid rgba(0,0,0,0.035);
+margin-right: -32px;
+z-index: 5;
+position: relative;
+}
+.notice-board-side-menu > li.active > a, 
+.notice-board-side-menu > li.active > a:focus, 
+.notice-board-side-menu > li.active > a:hover {
+  color: rgba(0,0,0,0.87);
+  font-weight: 600;
+}
+.notice-board-tab {
+border-bottom: 0px solid #ddd;
+padding-bottom: 20px;
+}
+.notice-board-tab > li {
+  padding: 0px 5px;
+}
+.notice-board-tab > li > a {
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  padding: 10px 25px;
+}
+.notice-board-tab > li.active > a, 
+.notice-board-tab > li.active > a:focus, 
+.notice-board-tab > li.active > a:hover {
+  color: #fff;
+  cursor: default;
+  background-color: #FF7929;
+  border: 2px solid #FF7929;
+  border-bottom-color: transparent;
+}
+.notice-board-tab-content {
+  padding: 0px;
+  border: 1px solid rgba(0,0,0,0.035);
+}
+.notice-box {
+  font-size: 16px;
+  line-height: 26px;
+  color: rgba(0,0,0,0.6);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding: 15px;
+}
+.notice-box h2 {
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 30px;
+  color: #18964E;
+}
+.notice-box-time {
+  font-size: 14px;
+  line-height: 17px;
+  color: rgba(0,0,0,0.6);
+}
+.notice-box-btn {
+  background-color: #E9C94C;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 22px;
+  color: rgba(0,0,0,0.87);
+}
+.notice-box-btn:hover {
+  color: rgba(0,0,0,0.6);
+  background-color: rgba(233,201,76,0.8);
+}
+.notice-board-tab-btn {
+  background-color: #F9F9FA;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0,0,0,0.38);
+  border: 2px solid rgba(0, 0, 0, 0.06);
+}
+.notice-board-tab-btn:hover {
+background-color: #FF7929;
+}
+
+/*----------------------------------------
+ 24. Gallery CSS
+----------------------------------------*/
+#gallery-section {
+  padding: 45px 0;
+  background-color: #F9F9FA;
+}
+.gallery-filter-btn {
+  background-color: #F9F9FA;
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0,0,0,0.38);
+  border: 2px solid rgba(0, 0, 0, 0.06);
+  padding: 10px 25px;
+  margin: 0px 5px; 
+}
+.gallery-filter-btn.focus, 
+.gallery-filter-btn:focus, 
+.gallery-filter-btn:hover {
+  background-color: #FF7929;
+  color: #fff;
+}
+.gallery-heading h2{
+  font-size: 26px;
+  line-height: 31px;
+  color: rgba(0,0,0,0.87);
+  font-weight: 600;
+}
+.gallery-album img {
+  border-radius: 5px;
+  -moz-box-shadow:    6px 6px 6px -6px rgba(0,0,0,0.8);
+  -webkit-box-shadow: 6px 6px 6px -6px rgba(0,0,0,0.8);
+  box-shadow: 6px 6px 6px -6px rgba(0,0,0,0.8);
+}
+.gallery-album-caption {
+  padding: 10px 0;
+}
+.gallery-album-caption h3 {
+  font-size: 20px;
+  line-height: 24px;
+  color: rgba(0,0,0,0.87);
+}
+.gallery-album-caption p {
+  font-size: 16px;
+  line-height: 19px;
+  color: rgba(0,0,0,0.6);
+}
 /*----------------------------------------
  .End CSS
 ----------------------------------------*/
