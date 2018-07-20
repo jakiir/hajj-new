@@ -77,7 +77,7 @@ class NewsletterWidget extends WP_Widget {
                 }
             }
         } else {
-            $buffer = str_ireplace('<form', '<form method="post" action="' . esc_attr(home_url('/') . '?na=s') . '" onsubmit="return newsletter_check(this)"', $buffer);
+            $buffer = str_ireplace('<form', '<form method="post" action="' . esc_attr($newsletter->get_subscribe_url())  . '" onsubmit="return newsletter_check(this)"', $buffer);
             $buffer = str_ireplace('</form>', '<input type="hidden" name="nr" value="widget"/></form>', $buffer);
         }
 
@@ -103,7 +103,7 @@ class NewsletterWidget extends WP_Widget {
         ?>
         <p>
             <label for="<?php echo $this->get_field_id('title'); ?>">
-                Title:
+                <?php _e('Title')?>:
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" name="<?php echo $this->get_field_name('title'); ?>" type="text" value="<?php echo esc_attr($instance['title']); ?>" />
             </label>
 

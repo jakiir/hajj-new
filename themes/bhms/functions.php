@@ -85,6 +85,9 @@ if ( ! function_exists( 'bhmp_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'bhmp_setup' );
 
+
+require_once __DIR__ . '/lib/cmb2/init.php';
+require_once __DIR__ . '/lib/cmb2/cmb-functions.php';
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

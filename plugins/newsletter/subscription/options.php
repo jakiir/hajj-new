@@ -9,11 +9,8 @@ $current_language = $module->get_current_language();
 
 $is_all_languages = $module->is_all_languages();
 
-if (!$is_all_languages) {
-    $controls->warnings[] = 'You are configuring the language <strong>' . $current_language . '</strong>. Switch to "all languages" to see every options.';
-}
+$controls->add_language_warning();
 
-// TODO: Remove and use the $module->options.
 $options = $module->get_options('', $current_language);
 
 if ($controls->is_action()) {

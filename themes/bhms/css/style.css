@@ -3249,3 +3249,20 @@ color: #021020;
   float: left;
     padding: 15px 10px;
 }
+.awesome-weather-attribution{display:none;}
+.awesome-weather-current-temp{font-size:37px;display:inline;}
+.awesome-weather-forecast{display:none;}
+.awesome-weather-header{
+	display:inline-block;
+	background:#fff;
+	line-height: 20px;
+	text-transform: capitalize;
+	width: 50%;
+    text-align: left;
+	color: #000;
+    text-shadow: none;
+	font-weight: normal;
+    font-size: 18px;
+}
+.awesome-weather-header:after{content:"Cloudy";display:block;font-weight:normal;font-size:15px;}
+.awesome-weather-current-temp strong:after{content:"C";}
