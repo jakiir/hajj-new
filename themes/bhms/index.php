@@ -151,7 +151,7 @@ get_header();
 									<?php } ?>
 								</span>
 								<span class="view-all">
-									<a href="#">
+									<a href="<?php echo home_url('/notices/'); ?>">
 										View All <i class="fa fa-angle-right"></i>
 									</a>
 								</span>
@@ -159,7 +159,7 @@ get_header();
 							<ul class="notice-area-content">
 								<?php 
 								$notice_args = array(
-									'post_type' => 'hajj_bulletin',
+									'post_type' => 'notices',
 									'post_status' => 'publish',
 									'posts_per_page' => 4
 								);
@@ -169,13 +169,12 @@ get_header();
 									foreach($get_all_notice as $get_notice) {
 										$postId = $get_notice->ID;
 										$post_tile = $get_notice->post_title;
-										$exp_post_tile = explode('-',$post_tile);
 										?>	
 										<li>
-											<span class="notice-date-time">
+											<?php /*?><span class="notice-date-time">
 												<?php echo $exp_post_tile[1]; ?>
-											</span>
-											<?php echo $exp_post_tile[0]; ?>
+											</span><?php */?>
+											<?php echo $post_tile; ?>
 										</li>
 										<?php 
 										$inc++;
@@ -415,13 +414,13 @@ get_header();
 						<div class="weather text-left">
 							<div class="weather-inner" style="margin-bottom: 10px;">
 								<?php 
-									echo do_shortcode( '[awesome-weather location="Dhaka" units="C" size="wide" background_by_weather="0" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
+									echo do_shortcode( '[awesome-weather location="Dhaka" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
 								?>
 							</div>
 
 							<div class="weather-inner">
 								<?php 
-									echo do_shortcode( '[awesome-weather location="Mecca" units="C" size="wide" background_by_weather="0" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
+									echo do_shortcode( '[awesome-weather location="Mecca" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
 								?>
 
 							</div>
