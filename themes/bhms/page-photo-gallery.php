@@ -19,13 +19,20 @@ get_header();
 <section id="gallery-section">
 	<div class="container">
 		<div class="row">
+		<?php	 
+		$query = new WP_Query( array( 'post_type' => 'photo_gallery','posts_per_page' => 12 ) );
+		if ( $query->have_posts() ) : ?>
+			<?php while ( $query->have_posts() ) : $query->the_post(); 
+				$this_year = get_the_date('Y');						
+				$allYear[$this_year][] = get_the_ID();
+			endwhile; wp_reset_postdata(); 
+			endif; ?>
 			<div class="col-md-12">
 				<div class="text-center">
 					<button class="btn gallery-filter-btn filter-button" data-filter="all">All</button>
-					<button class="btn gallery-filter-btn filter-button" data-filter="2018">2018</button>
-					<button class="btn gallery-filter-btn filter-button" data-filter="2017">2017</button>
-					<button class="btn gallery-filter-btn filter-button" data-filter="2016">2016</button>
-					<button class="btn gallery-filter-btn filter-button" data-filter="2015">2015</button>
+					<?php $inc=1; foreach($allYear as $key_year=>$eachYear): ?>
+						<button class="btn gallery-filter-btn filter-button" data-filter="<?php echo $key_year; ?>"><?php echo $key_year; ?></button>
+					<?php $inc++; endforeach; ?>
 				</div>
 
 				<div class="gallery-heading">
@@ -34,77 +41,27 @@ get_header();
 			</div>
 			
 			<div class="gallery-body">
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2018">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
+			<?php $inc=1; foreach($allYear as $key_year=>$eachYear): ?>
+			<?php 
+			foreach($eachYear as $key=>$post_id): 
+				$content_post = get_post($post_id);
+				$content = $content_post->post_content;
+				$content = apply_filters('the_content', $content);
+				$content = str_replace(']]>', ']]&gt;', $content);
+				$post_title = $content_post->post_title;
+				$post_title = apply_filters('the_content', $post_title);
+				$post_title = str_replace(']]>', ']]&gt;', $post_title);
+				$postDate = $content_post->post_date;
+			?>
+				<div class="gallery-album col-sm-4 col-xs-6 filter <?php echo $key_year; ?>">
+					<?php echo $content; ?>
 					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2018) Jeddah</h3>
-						<p>13 Photos</p>
+						<h3><?php echo $post_title; ?></h3>
+						<!--<p>13 Photos</p>-->
 					</div>
 				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2018">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2018) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2018">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2018) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2015">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2015) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2015">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2015) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2016">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2016) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2016">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2016) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2017">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2017) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
-
-				<div class="gallery-album col-sm-4 col-xs-6 filter 2017">
-					<img src="http://fakeimg.pl/365x365/" class="img-responsive" alt="">
-					<div class="gallery-album-caption">
-						<h3>Hajj 1437 (2017) Jeddah</h3>
-						<p>13 Photos</p>
-					</div>
-				</div>
+				<?php endforeach; ?>
+				<?php $inc++; endforeach; ?>
 			</div>
 		</div>
 	</div>

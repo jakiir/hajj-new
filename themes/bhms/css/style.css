@@ -3359,3 +3359,4 @@ color: #021020;
 .contact-form-area .wpcf7-form-control-wrap {float: left;}
 .contact-form-area .wpcf7-response-output{position:relative;top:-83px;border:0;text-align:left;}
 .contact-google-map #google-map{margin:0;}
+.gallery-body iframe,.gallery-body embed{width:100%!important;}

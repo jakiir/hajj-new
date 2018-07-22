@@ -438,7 +438,11 @@ add_action( 'cmb2_admin_init', 'hajjsite_register_hajj_info_page_metabox' );
  */
 function hajjsite_register_hajj_info_page_metabox() {
 	$prefix = 'hajj_info_';
-
+	if ( $post = get_page_by_path( 'hajj-info', OBJECT, 'page' ) ){
+		$id = $post->ID;
+	} else {
+		$id = 0;
+	}
 	/**
 	 * Metabox to be displayed on a single page ID
 	 */
@@ -450,7 +454,7 @@ function hajjsite_register_hajj_info_page_metabox() {
 		'priority'     => 'high',
 		'show_names'   => true, // Show field names on the left
 		'show_on'      => array(
-			'id' => array( 6414 ),
+			'id' => array( $id ),
 		), // Specific post IDs to display this metabox
 	) );
 
@@ -500,26 +504,34 @@ add_action( 'cmb2_admin_init', 'hajjsite_register_repeatable_group_field_metabox
  * Hook in and add a metabox to demonstrate repeatable grouped fields
  */
 function hajjsite_register_repeatable_group_field_metabox() {
-	$prefix = 'hajjsite_group_';
-
+	$prefix = 'hajj_';
+	
+	if ( $post = get_page_by_path( 'faq', OBJECT, 'page' ) ){
+		$faq_id = $post->ID;
+	} else {
+		$faq_id = 0;
+	}
 	/**
 	 * Repeatable Field Groups
 	 */
-	/*$cmb_group = new_cmb2_box( array(
-		'id'           => $prefix . 'metabox',
-		'title'        => esc_html__( 'Repeating Field Group', 'cmb2' ),
+	$cmb_group = new_cmb2_box( array(
+		'id'           => $prefix . 'faq_metabox',
+		'title'        => esc_html__( 'FAQ Group', 'cmb2' ),
 		'object_types' => array( 'page' ),
+		'show_on'      => array(
+			'id' => array( $faq_id ),
+		), // Specific post IDs to display this metabox
 	) );
 
 	// $group_field_id is the field id string, so in this case: $prefix . 'demo'
 	$group_field_id = $cmb_group->add_field( array(
-		'id'          => $prefix . 'demo',
+		'id'          => $prefix . 'faq_question_answer',
 		'type'        => 'group',
 		'description' => esc_html__( 'Generates reusable form entries', 'cmb2' ),
 		'options'     => array(
-			'group_title'   => esc_html__( 'Entry {#}', 'cmb2' ), // {#} gets replaced by row number
-			'add_button'    => esc_html__( 'Add Another Entry', 'cmb2' ),
-			'remove_button' => esc_html__( 'Remove Entry', 'cmb2' ),
+			'group_title'   => esc_html__( 'FAQ {#}', 'cmb2' ), // {#} gets replaced by row number
+			'add_button'    => esc_html__( 'Add Another FAQ', 'cmb2' ),
+			'remove_button' => esc_html__( 'Remove FAQ', 'cmb2' ),
 			'sortable'      => true, // beta
 			// 'closed'     => true, // true to have the groups closed by default
 		),
@@ -531,32 +543,25 @@ function hajjsite_register_repeatable_group_field_metabox() {
 	 *
 	 * The parent field's id needs to be passed as the first argument.
 	 */
-	/*$cmb_group->add_group_field( $group_field_id, array(
-		'name'       => esc_html__( 'Entry Title', 'cmb2' ),
-		'id'         => 'title',
+	$cmb_group->add_group_field( $group_field_id, array(
+		'name'       => esc_html__( 'Question', 'cmb2' ),
+		'id'         => 'question',
 		'type'       => 'text',
 		// 'repeatable' => true, // Repeatable fields are supported w/in repeatable groups (for most types)
 	) );
 
 	$cmb_group->add_group_field( $group_field_id, array(
-		'name'        => esc_html__( 'Description', 'cmb2' ),
-		'description' => esc_html__( 'Write a short description for this entry', 'cmb2' ),
-		'id'          => 'description',
+		'name'        => esc_html__( 'Answer', 'cmb2' ),
+		'description' => esc_html__( 'Write faq answer', 'cmb2' ),
+		'id'          => 'answer',
 		'type'        => 'textarea_small',
 	) );
 
 	$cmb_group->add_group_field( $group_field_id, array(
-		'name' => esc_html__( 'Entry Image', 'cmb2' ),
-		'id'   => 'image',
+		'name' => esc_html__( 'File Download', 'cmb2' ),
+		'id'   => 'download_file',
 		'type' => 'file',
 	) );
-
-	$cmb_group->add_group_field( $group_field_id, array(
-		'name' => esc_html__( 'Image Caption', 'cmb2' ),
-		'id'   => 'image_caption',
-		'type' => 'text',
-	) );*/
-
 }
 
 add_action( 'cmb2_admin_init', 'hajjsite_register_user_profile_metabox' );
