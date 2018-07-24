@@ -17,7 +17,8 @@ get_header();
 <!-- Start Slider Area -->
 <div id="home" class="slider-area">
 	<div class="bend niceties preview-2">
-		<div id="ensign-nivoslider" class="slides">
+		<img id="preloadingSlider" src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/slider_image_01.jpg" alt="" title="" />
+		<div id="ensign-nivoslider" class="slides" style="display:none;">
 			<?php 
 			$slider_args = array(
 				'post_type' => 'main_slider',

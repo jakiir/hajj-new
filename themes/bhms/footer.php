@@ -145,7 +145,7 @@
   <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/lib/nivo-slider/js/jquery.nivo.slider.js" type="text/javascript"></script>
   <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/lib/appear/jquery.appear.js"></script>
   <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/lib/isotope/isotope.pkgd.min.js"></script>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJIbxO_nt_3juVyVtQtqd9vmCLB7MfbcE"></script>
+	<!--<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJIbxO_nt_3juVyVtQtqd9vmCLB7MfbcE"></script>-->
   <!-- Contact Form JavaScript File -->
   <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/contactform/contactform.js"></script>
   <script src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/js/moment.js"></script>
