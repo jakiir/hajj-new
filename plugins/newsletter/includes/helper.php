@@ -88,8 +88,7 @@ function tnp_media_resize($media_id, $size) {
         $resized = $editor->resize($width, $height, $crop);
 
         if (is_wp_error($resized)) {
-            return $resized;
-            //return $uploads['baseurl'] . '/' . $relative_file;
+            return $uploads['baseurl'] . '/' . $relative_file;
         }
 
         $saved = $editor->save($absolute_thumb);

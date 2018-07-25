@@ -37,7 +37,7 @@ $module = NewsletterUsers::instance();
                 <tr>
                     <th><?php _e('List', 'newsletter') ?></th>
                     <td>
-                        <?php $controls->lists_select('list'); ?>
+                        <?php $controls->lists_select('list', __('All', 'newsletter')); ?>
                     </td>
                 </tr>
             </table>

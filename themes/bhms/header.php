@@ -20,7 +20,6 @@
 	<?php wp_head(); ?>
 
 	<!-- Favicons -->
-	<link href="<?php esc_url( bloginfo( 'template_url' ) ); ?>/favicon.ico" rel="icon">
 	<link href="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/apple-touch-icon.png" rel="apple-touch-icon">
 
 	<!-- Google Fonts -->
@@ -58,7 +57,7 @@
 </head>
 
 <body data-spy="scroll" data-target="#navbar-example">
-	<div id="preloader"></div>
+	<!--<div id="preloader"></div>-->
 	<header>
 		<!-- header-area start -->
 		<div class="container">

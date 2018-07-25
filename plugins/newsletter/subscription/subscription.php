@@ -746,8 +746,11 @@ class NewsletterSubscription extends NewsletterModule {
             $user['referrer'] = strip_tags(trim($_REQUEST['nr']));
         }
 
+        $language = '';
         if (!empty($_REQUEST['nlang'])) {
-            $user['language'] = strtolower(strip_tags($_REQUEST['nlang']));
+            $language = strtolower(strip_tags($_REQUEST['nlang']));
+            // TODO: Check if it's an allowed language code
+            $user['language'] = $language;
         }
 
         // From the antibot form
@@ -785,10 +788,13 @@ class NewsletterSubscription extends NewsletterModule {
             $this->logger->debug('No lists received');
         }
 
-        // Forced lists
+        // Forced lists (general or by language)
         $lists = $this->get_lists();
         foreach ($lists as $list) {
             if ($list->forced) {
+                $user['list_' . $list->id] = 1;
+            }
+            if (in_array($language, $list->languages)) {
                 $user['list_' . $list->id] = 1;
             }
         }
@@ -969,7 +975,7 @@ class NewsletterSubscription extends NewsletterModule {
 
     function get_privacy_url() {
         if (!$this->privacy_url) {
-            if ($this->options_profile['privacy_use_wp_url'] && function_exists('get_privacy_policy_url')) {
+            if (!empty($this->options_profile['privacy_use_wp_url']) && function_exists('get_privacy_policy_url')) {
                 $this->privacy_url = get_privacy_policy_url();
             } else {
                 $this->privacy_url = $this->options_profile['privacy_url'];
@@ -1292,7 +1298,8 @@ class NewsletterSubscription extends NewsletterModule {
     }
 
     function get_privacy_field() {
-        $privacy_status = (int) $this->options_profile['privacy_status'];
+        $options_profile = $this->get_options('profile', $this->get_current_language());
+        $privacy_status = (int) $options_profile['privacy_status'];
         $buffer = '<label>';
         if ($privacy_status === 1) {
             $buffer .= '<input type="checkbox" name="ny" required class="tnp-privacy">&nbsp;';
@@ -1300,9 +1307,9 @@ class NewsletterSubscription extends NewsletterModule {
         $url = $this->get_privacy_url();
         if (!empty($url)) {
             $buffer .= '<a target="_blank" href="' . esc_attr($url) . '">';
-            $buffer .= esc_attr($this->options_profile['privacy']) . '</a>';
+            $buffer .= esc_attr($options_profile['privacy']) . '</a>';
         } else {
-            $buffer .= esc_html($this->options_profile['privacy']);
+            $buffer .= esc_html($options_profile['privacy']);
         }
 
         $buffer .= "</label>";
@@ -1531,7 +1538,7 @@ class NewsletterSubscription extends NewsletterModule {
 
         $form = do_shortcode($form);
 
-        $action = home_url('/') . '?na=s';
+        $action = $this->build_action_url('s');
 
         if (stripos($form, '<form') === false) {
             $form = '<form method="post" action="' . $action . '">' . $form . '</form>';
@@ -1608,11 +1615,12 @@ class NewsletterSubscription extends NewsletterModule {
         if (!is_array($attrs)) {
             $attrs = array();
         }
-        $attrs = array_merge(array('class' => '', 'referrer' => 'minimal', 'button' => $this->options_profile['subscribe'], 'placeholder' => $this->options_profile['email']), $attrs);
+        $options_profile = $this->get_options('profile', $this->get_current_language());
+        $attrs = array_merge(array('class' => '', 'referrer' => 'minimal', 'button' => $options_profile['subscribe'], 'placeholder' => $options_profile['email']), $attrs);
 
         $form = '';
         $form .= '<div class="tnp tnp-subscription-minimal ' . $attrs['class'] . '">';
-        $form .= '<form action="' . esc_attr(home_url('/')) . '?na=s" method="post">';
+        $form .= '<form action="' . esc_attr($this->build_action_url('s')) . '" method="post">';
         if (isset($attrs['lists'])) {
             $arr = explode(',', $attrs['lists']);
             foreach ($arr as $a) {
@@ -1665,7 +1673,7 @@ class NewsletterSubscription extends NewsletterModule {
         $user = $this->get_user_from_request();
         $message_key = $this->get_message_key_from_request();
 
-        $message = apply_filters('newsletter_page_text', '', $message_key);
+        $message = apply_filters('newsletter_page_text', '', $message_key, $user);
 
         $options = $this->get_options('', $this->get_user_language($user));
 
@@ -1685,7 +1693,7 @@ class NewsletterSubscription extends NewsletterModule {
             // Compatibility check
             if (stripos($message, '<form') !== false) {
                 $message .= $this->get_form_javascript();
-                $message = str_ireplace('<form', '<form method="post" action="' . esc_attr(home_url('/')) . '?na=s" onsubmit="return newsletter_check(this)"', $message);
+                $message = str_ireplace('<form', '<form method="post" action="' . esc_attr($this->get_subscribe_url()) . '" onsubmit="return newsletter_check(this)"', $message);
             } else {
 
                 if (strpos($message, '{subscription_form') === false) {

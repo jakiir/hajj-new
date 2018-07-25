@@ -396,6 +396,16 @@ class NewsletterControls {
         $this->messages .= __('Done.', 'newsletter');
     }
 
+    function add_language_warning() {
+        $newsletter = Newsletter::instance();
+        $current_language = $newsletter->get_current_language();
+
+        if (!$current_language) {
+            return;
+        }
+        $this->warnings[] = 'You are configuring the language <strong>' . $newsletter->get_language_label($current_language) . '</strong>. Switch to "all languages" to see every options.';
+    }
+
     function hint($text, $url = '') {
         echo '<div class="hints">';
         // Do not escape that, it can be formatted
@@ -541,13 +551,13 @@ class NewsletterControls {
 
     function page($name = 'page', $first = null, $language = '') {
         $args = array(
-            'post_type'=>'page',
+            'post_type' => 'page',
             'posts_per_page' => 1000,
             'offset' => 0,
             'orderby' => 'post_title',
             'post_status' => 'any',
             'suppress_filters' => true
-                );
+        );
 
         $pages = get_posts($args);
         //$pages = get_pages();
@@ -556,7 +566,7 @@ class NewsletterControls {
             /* @var $page WP_Post */
             $label = $page->post_title;
             if ($page->post_status != 'publish') {
-                $label .= ' (' . $page->post_status . ')'; 
+                $label .= ' (' . $page->post_status . ')';
             }
             $options[$page->ID] = $label;
         }
@@ -1458,7 +1468,33 @@ class NewsletterControls {
         }
 
 
-        $this->select('language', $language_options);
+        $this->select($name, $language_options);
+    }
+
+    function is_multilanguage() {
+        return Newsletter::instance()->is_multilanguage();
+    }
+
+    /**
+     * Creates a checkbox group with all active languages. Each checkbox is named
+     * $name[] and values with the relative language code.
+     * 
+     * @param string $name
+     */
+    function languages($name = 'languages') {
+        if (!$this->is_multilanguage()) {
+            echo __('Install WPML or Polylang for multilangue support', 'newsletter');
+            return;
+        }
+
+        $language_options = Newsletter::instance()->get_languages();
+
+        if (empty($language_options)) {
+            echo __('Your multilangiage plugin is not supported or there are no languages defined', 'newsletter');
+            return;
+        }
+
+        $this->checkboxes_group($name, $language_options);
     }
 
     /**

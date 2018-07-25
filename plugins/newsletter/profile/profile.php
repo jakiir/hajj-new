@@ -30,7 +30,7 @@ class NewsletterProfile extends NewsletterModule {
             add_action('wp_ajax_newsletter_users_export', array($this, 'hook_wp_ajax_newsletter_users_export'));
         }
         add_filter('newsletter_replace', array($this, 'hook_newsletter_replace'), 10, 3);
-        add_filter('newsletter_page_text', array($this, 'hook_newsletter_page_text'), 10, 2);
+        add_filter('newsletter_page_text', array($this, 'hook_newsletter_page_text'), 10, 3);
     }
 
     function hook_wp_loaded() {
@@ -102,9 +102,10 @@ class NewsletterProfile extends NewsletterModule {
         return $text;
     }
 
-    function hook_newsletter_page_text($text, $key) {
+    function hook_newsletter_page_text($text, $key, $user) {
         if ($key == 'profile') {
-            return $this->options['text'];
+            $options = $this->get_options('main', $this->get_current_language($user));
+            return $options['text'];
         }
         return $text;
     }
@@ -357,8 +358,12 @@ class NewsletterProfile extends NewsletterModule {
 
         // General data
         $data['email'] = $email;
-        $data['name'] = $this->normalize_name(stripslashes($_REQUEST['nn']));
-        $data['surname'] = $this->normalize_name(stripslashes($_REQUEST['ns']));
+        if (isset($_REQUEST['nn'])) {
+            $data['name'] = $this->normalize_name(stripslashes($_REQUEST['nn']));
+        }
+        if (isset($_REQUEST['ns'])) {
+            $data['surname'] = $this->normalize_name(stripslashes($_REQUEST['ns']));
+        }
         if ($options_profile['sex_status'] >= 1) {
             $data['sex'] = $_REQUEST['nx'][0];
             // Wrong data injection check

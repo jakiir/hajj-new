@@ -614,7 +614,7 @@ div#preloader {
   }
 
   .panel-body {
-    padding: 15px 15px 0px 50px;
+    /*padding: 15px 15px 0px 50px;*/
   }
 
   .faq-details h4.check-title {
@@ -965,10 +965,10 @@ div#preloader {
 }
 
 .team-social-icon {
-  left: 44%;
+  left:37%;
   opacity: 0;
   position: absolute;
-  top: 30%;
+  top:20%;
   transition: 1.3s;
 }
 
@@ -3030,6 +3030,7 @@ border-radius: 8px;
   line-height: 26px;
   color: rgba(0,0,0,0.87);
 }
+.form-download a{color:#18964E;}
 
 /*----------------------------------------
  22. Faq CSS
@@ -3076,21 +3077,34 @@ border-radius: 8px;
   background-color: #F9F9FA;
 }
 .notice-board-side-menu {
-  margin-top: 150px;
+  margin-top:70px;
 }
 .notice-board-side-menu > li {
   display: block;
-  padding: 10px 15px;
+
   margin-bottom: -1px;
   background-color: #F9F9FA;
 }
 .notice-board-side-menu > li > a {
-  font-size: 18px;
-  line-height: 21px;
-  color: rgba(0,0,0,0.6);
+	font-size: 18px;
+	color: rgba(0,0,0,0.6);
+	overflow: hidden;
+	width: 100%;
+	display: block;
+	padding: 10px 15px;
 }
 .notice-board-side-menu > li > a:hover {
   color: rgba(0,0,0,0.87);
+}
+.notice-board-side-menu > li:hover {
+	color: rgba(0,0,0,0.87);
+	background-color: #fff;
+	border-left: 5px solid #18964E;
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	margin-right: -32px;
+	z-index: 5;
+	position: relative;
 }
 .notice-board-side-menu > li.active {
 background-color: #fff;
@@ -3228,7 +3242,7 @@ background-color: #FF7929;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
   overflow: hidden;
-  padding: 20px; 
+  /*padding: 20px;*/
 }
 .weather-text {
   font-style: normal;
@@ -3249,3 +3263,100 @@ color: #021020;
   float: left;
     padding: 15px 10px;
 }
+.awesome-weather-attribution{display:none;}
+.awesome-weather-current-temp{font-size:37px;display:inline;}
+.awesome-weather-header{
+	display:inline-block;
+	background:#fff;
+	line-height: 20px;
+	text-transform: capitalize;
+	width: 50%;
+    text-align: left;
+	color: #000;
+    text-shadow: none;
+	font-weight: normal;
+    font-size: 18px;
+	background: transparent !important;
+}
+.awesome-weather-header:after{content:"Cloudy";display:block;font-weight:normal;font-size:15px;}
+.awesome-weather-current-temp strong:after{content:"C";}
+.pagination {
+    clear: both;
+    padding: 0px 0;
+    position: relative;
+    font-size: 11px;
+    line-height: 13px;
+    margin: 5px 0 !important;
+}
+.pagination span, .pagination a {
+    display: block;
+    float: left;
+    margin: 2px 2px 2px 0;
+    padding: 6px 9px 5px 9px;
+    text-decoration: none;
+    width: auto;
+    color: #fff;
+    background:#18954D;
+}
+.pagination .current {
+    padding: 6px 9px 5px 9px;
+    background: #FF7929;
+    color: #fff;
+}
+.contact-head{
+	background: #F9F9FA;
+    font-size: 30px;
+    text-align: center;
+    width: 100%;
+    padding:30px 0;
+    line-height: 34px;
+    color: #333;
+}
+.contact-head span{color:#18954D;}
+.contact-area .section-headline{color:#000;}
+.contact-box{width:80%;margin:0 auto;}
+.contact-box .panel{background:#F9F9FA;}
+.contact-title{font-size:14px;color:#FE9261;}
+.contact-no{font-size:14px;color:#000;}
+.contact-box-title{color:#18954D;margin-bottom:10px;}
+.contact-form-area{background:#F9F9FA;}
+.contact-form-area p{margin:0;}
+.contact-form-area .wpcf7{margin:0 auto;display:block;width:75%;}
+.contact-form-area .contact-form-title{
+	text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+    padding: 15px;
+    margin: 0;
+}
+.contact-form-area .wpcf7-form-control{
+    margin: 15px 10px 10px 0;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.contact-form-area .your-subject{width:98%;}
+.contact-form-area .wpcf7-textarea{height:auto;}
+.contact-form-area .wpcf7-submit{
+	background: #E9C94C;
+    color: #000;
+    margin: 0 auto;
+    width: 123px;
+    display: block;
+    font-weight: bold;
+}
+.contact-form-area .wpcf7-form-control-wrap {float: left;}
+.contact-form-area .wpcf7-response-output{position:relative;top:-83px;border:0;text-align:left;}
+.contact-google-map #google-map{margin:0;}
+.gallery-body iframe,.gallery-body embed{width:100%!important;}

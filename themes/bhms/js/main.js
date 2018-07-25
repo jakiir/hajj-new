@@ -4,12 +4,13 @@
   /*--------------------------
   preloader
   ---------------------------- */
-  $(window).on('load', function() {
+  /*$(window).on('load', function() {
     var pre_loader = $('#preloader');
     pre_loader.fadeOut('slow', function() {
       $(this).remove();
     });
-  });
+  });*/
+  
 
   /*---------------------
    TOP Menu Stick
@@ -46,19 +47,29 @@
   //---------------------------------------------
   //Nivo slider
   //---------------------------------------------
-  $('#ensign-nivoslider').nivoSlider({
-    effect: 'random',
-    slices: 15,
-    boxCols: 12,
-    boxRows: 8,
-    animSpeed: 500,
-    pauseTime: 5000,
-    startSlide: 0,
-    directionNav: true,
-    controlNavThumbs: false,
-    pauseOnHover: true,
-    manualAdvance: false,
-  });
+  if ($("#preloadingSlider").length > 0) {
+	  $(window).on('load', function() {
+		var pre_loader = $('#preloadingSlider');
+		pre_loader.fadeOut('slow', function() {
+		  $(this).remove();
+		  $('#ensign-nivoslider').show();
+		  $('#ensign-nivoslider').nivoSlider({
+			effect: 'random',
+			slices: 15,
+			boxCols: 12,
+			boxRows: 8,
+			animSpeed: 500,
+			pauseTime: 5000,
+			startSlide: 0,
+			directionNav: true,
+			controlNavThumbs: false,
+			pauseOnHover: true,
+			manualAdvance: false,
+		  });
+		});
+	  });
+  }
+  
 
   /*----------------------------
    Scrollspy js
@@ -233,23 +244,25 @@
   /*---------------------
      Google Maps
   --------------------- */
-  var get_latitude = $('#google-map').data('latitude');
-  var get_longitude = $('#google-map').data('longitude');
+  if ($("#google-map").length > 0) {
+	  var get_latitude = $('#google-map').data('latitude');
+	  var get_longitude = $('#google-map').data('longitude');
 
-  function initialize_google_map() {
-    var myLatlng = new google.maps.LatLng(get_latitude, get_longitude);
-    var mapOptions = {
-      zoom: 13,
-      scrollwheel: false,
-      center: myLatlng
-    };
-    var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
-    var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map
-    });
+	  function initialize_google_map() {
+		var myLatlng = new google.maps.LatLng(get_latitude, get_longitude);
+		var mapOptions = {
+		  zoom: 13,
+		  scrollwheel: false,
+		  center: myLatlng
+		};
+		var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+		var marker = new google.maps.Marker({
+		  position: myLatlng,
+		  map: map
+		});
+	  }
+	  google.maps.event.addDomListener(window, 'load', initialize_google_map);
   }
-  google.maps.event.addDomListener(window, 'load', initialize_google_map);
 
 })(jQuery);
 

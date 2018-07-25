@@ -17,7 +17,8 @@ get_header();
 <!-- Start Slider Area -->
 <div id="home" class="slider-area">
 	<div class="bend niceties preview-2">
-		<div id="ensign-nivoslider" class="slides">
+		<img id="preloadingSlider" src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/slider_image_01.jpg" alt="" title="" />
+		<div id="ensign-nivoslider" class="slides" style="display:none;">
 			<?php 
 			$slider_args = array(
 				'post_type' => 'main_slider',
@@ -151,36 +152,36 @@ get_header();
 									<?php } ?>
 								</span>
 								<span class="view-all">
-									<a href="#">
+									<a href="<?php echo home_url('/notices/'); ?>">
 										View All <i class="fa fa-angle-right"></i>
 									</a>
 								</span>
 							</p>
 							<ul class="notice-area-content">
-								<li>
-									<span class="notice-date-time">
-										15 May | 08:30pm
-									</span>
-									Notice regarding the renewal of e visa from the Bangladesh High Commission.
-								</li>
-								<li>
-									<span class="notice-date-time">
-										26 Apr | 08:30pm
-									</span>
-									Notice regarding the renewal of e visa from the Bangladesh High Commission.
-								</li>
-								<li>
-									<span class="notice-date-time">
-										26 Apr | 08:30pm
-									</span>
-									Notice regarding the renewal of e visa.
-								</li>
-								<li>
-									<span class="notice-date-time">
-										26 Apr | 08:30pm
-									</span>
-									Notice regarding the renewal of e visa.
-								</li>
+								<?php 
+								$notice_args = array(
+									'post_type' => 'notices',
+									'post_status' => 'publish',
+									'posts_per_page' => 4
+								);
+								$get_all_notice = get_posts( $notice_args );						
+								if ( !empty($get_all_notice) ) {
+									$inc=1;
+									foreach($get_all_notice as $get_notice) {
+										$postId = $get_notice->ID;
+										$post_tile = $get_notice->post_title;
+										?>	
+										<li>
+											<?php /*?><span class="notice-date-time">
+												<?php echo $exp_post_tile[1]; ?>
+											</span><?php */?>
+											<?php echo $post_tile; ?>
+										</li>
+										<?php 
+										$inc++;
+									}
+								}
+								?>
 							</ul>
 						</div>
 					</div>
@@ -359,16 +360,28 @@ get_header();
 						<div class="team-top">
 							<!-- start testimonial carousel -->
 							<div class="usefull-carousel">
+								<?php 
+									$menuLocations = get_nav_menu_locations();
+									$menuID = $menuLocations['usefull-menu'];
+									$primaryNav = wp_get_nav_menu_items($menuID);
+									foreach ( $primaryNav as $navItem ) {
+										$usefullId = $navItem->object_id;
+										$postId = wp_get_attachment_image_src( get_post_thumbnail_id( $postId ), 'single-post-thumbnail' );
+										$usefull_pic = get_stylesheet_directory_uri().'/img/no-image.jpg';
+										if (!empty($usfull_thum[0])) {
+											$usefull_pic = $usfull_thum[0];
+										}
+								?>
 								<div class="single-link">
 									<div class="single-team-member">
 										<div class="team-img">
-											<a href="#">
-												<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/evisa.png" class="img-responsive"/>
+											<a href="<?php echo $navItem->url; ?>" title="<?php echo $navItem->title; ?>">
+												<img src="<?php echo $usefull_pic; ?>" class="img-responsive"/>
 											</a>
 											<div class="team-social-icon text-center">
 												<ul>
 													<li>
-														<a href="#">
+														<a href="<?php echo $navItem->url; ?>" title="<?php echo $navItem->title; ?>">
 															<i class="fa fa-link"></i>
 														</a>
 													</li>
@@ -376,105 +389,20 @@ get_header();
 											</div>
 										</div>
 										<div class="team-content text-left">
-											<h4><a href="#">E- Visa Link <i class="fa fa-angle-right"></i></a></h4>
+											<h4><a href="<?php echo $navItem->url; ?>" title="<?php echo $navItem->title; ?>"><?php echo $navItem->title; ?> <i class="fa fa-angle-right"></i></a></h4>
 										</div>
 									</div>
 								</div>
-								<!-- End column -->
-								<div class="single-link">
-									<div class="single-team-member">
-										<div class="team-img">
-											<a href="#">
-												<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/death-news.png" class="img-responsive"/>
-											</a>
-											<div class="team-social-icon text-center">
-												<ul>
-													<li>
-														<a href="#">
-															<i class="fa fa-link"></i>
-														</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="team-content text-left">
-											<h4><a href="#">Death News <i class="fa fa-angle-right"></i></a></h4>
-										</div>
-									</div>
-								</div>
-								<!-- End column -->
-								<div class="single-link">
-									<div class="single-team-member">
-										<div class="team-img">
-											<a href="#">
-												<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/faq.png" class="img-responsive"/>
-											</a>
-											<div class="team-social-icon text-center">
-												<ul>
-													<li>
-														<a href="#">
-															<i class="fa fa-link"></i>
-														</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="team-content text-left">
-											<h4><a href="#">FAQ <i class="fa fa-angle-right"></i></a></h4>
-										</div>
-									</div>
-								</div>
-								<!-- End column -->
-								<div class="single-link">
-									<div class="single-team-member">
-										<div class="team-img">
-											<a href="#">
-												<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/flight-schedule.png" class="img-responsive"/>
-											</a>
-											<div class="team-social-icon text-center">
-												<ul>
-													<li>
-														<a href="#">
-															<i class="fa fa-link"></i>
-														</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="team-content text-left">
-											<h4><a href="#">Flight Schedule <i class="fa fa-angle-right"></i></a></h4>
-										</div>
-									</div>
-								</div>
-								<!-- End column -->
-								<div class="single-link">
-									<div class="single-team-member">
-										<div class="team-img">
-											<a href="#">
-												<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/faq.png" class="img-responsive"/>
-											</a>
-											<div class="team-social-icon text-center">
-												<ul>
-													<li>
-														<a href="#">
-															<i class="fa fa-link"></i>
-														</a>
-													</li>
-												</ul>
-											</div>
-										</div>
-										<div class="team-content text-left">
-											<h4><a href="#">FAQ <i class="fa fa-angle-right"></i></a></h4>
-										</div>
-									</div>
-								</div>
+								<?php 
+									}
+								?>
 								<!-- End column -->
 							</div>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div style="background: #F1F1F1; padding: 40px 20px">
+					<div style="background:#F1F1F1;padding:8px 17px 17px;">
 						<div class="section-headline text-left">
 							<h2>
 								<?php if(qtrans_getLanguage() == "en"){ ?>
@@ -486,21 +414,16 @@ get_header();
 						</div>
 						<div class="weather text-left">
 							<div class="weather-inner" style="margin-bottom: 10px;">
-								<div class="col-md-6">
-									<span class="weather-text">Dhaka <br> <small>Cloudy</small></span>
-								</div>
-								<div class="col-md-6">
-									<span class="weather-count">24 &#x2103;</span>
-								</div>
+								<?php 
+									echo do_shortcode( '[awesome-weather location="Dhaka" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
+								?>
 							</div>
 
 							<div class="weather-inner">
-								<div class="col-md-6">
-									<span class="weather-text">Mecca <br> <small>Cloudy</small></span>
-								</div>
-								<div class="col-md-6">
-									<span class="weather-count">32 &#x2103;</span>
-								</div>
+								<?php 
+									echo do_shortcode( '[awesome-weather location="Mecca" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
+								?>
+
 							</div>
 						</div>
 					</div>
@@ -545,18 +468,37 @@ get_header();
 			<div class="container">
 				<!-- section-heading end -->
 				<div class="row">
+					<?php
+						$the_slug = 'hajj-info';
+						$hajj_info_args = array(
+						  'name'        => $the_slug,
+						  'post_type'   => 'page',
+						  'post_status' => 'publish',
+						  'numberposts' => 1
+						);
+						$hajj_info_posts = get_posts($hajj_info_args);
+						if( $hajj_info_posts ) :
+						  $postId = $hajj_info_posts[0]->ID;
+						  $quota = get_post_meta($postId, 'hajj_info_quota', true);
+						  $quota_total = get_post_meta($postId, 'hajj_info_quota_total', true);
+						  $govt_registered_title = get_post_meta($postId, 'hajj_info_govt_registered_title', true);
+						  $govt_registered_title_total = get_post_meta($postId, 'hajj_info_govt_registered_title_total', true);
+						  $pvt_registered_title = get_post_meta($postId, 'hajj_info_pvt_registered_title', true);
+						  $pvt_registered_total = get_post_meta($postId, 'hajj_info_pvt_registered_total', true);
+					?>
 					<div class="col-md-4 col-sm-4 col-xs-12 hajj-item hajj-item-1">
-						<h2>127,198</h2>
-						<p>Hajj Pilgrim Quota in 2018</p>
+						<h2><?php echo $quota_total; ?></h2>
+						<p><?php echo $quota; ?></p>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12 hajj-item hajj-item-2">
-						<h2>6,219/7,198</h2>
-						<p>Govt. Registered so far</p>
+						<h2><?php echo $govt_registered_title_total; ?></h2>
+						<p><?php echo $govt_registered_title; ?></p>
 					</div>
 					<div class="col-md-4 col-sm-4 col-xs-12 hajj-item hajj-item-3">
-						<h2>116,606/120,000</h2>
-						<p>Pvt. Registered so far</p>
+						<h2><?php echo $pvt_registered_total; ?></h2>
+						<p><?php echo $pvt_registered_title; ?></p>
 					</div>
+					<?php endif; ?>
 				</div>
 			</div>
 		</div>

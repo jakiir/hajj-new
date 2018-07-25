@@ -6,12 +6,10 @@ $controls = new NewsletterControls();
 $module = NewsletterSubscription::instance();
 
 $current_language = $module->get_current_language();
-
 $is_all_languages = $module->is_all_languages();
+$is_multilanguage = $module->is_multilanguage();
 
-if (!$is_all_languages) {
-    $controls->warnings[] = 'You are configuring the language "<strong>' . $current_language . '</strong>". Switch to "all languages" to see every options.';
-}
+$controls->add_language_warning();
 
 if (!$controls->is_action()) {
     $controls->data = $module->get_options('lists', $current_language);
@@ -21,7 +19,7 @@ if (!$controls->is_action()) {
         $controls->add_message_saved();
     }
     if ($controls->is_action('unlink')) {
-        $wpdb->query("update " . NEWSLETTER_USERS_TABLE . " set list_" . ((int)$controls->button_data) . "=0");
+        $wpdb->query("update " . NEWSLETTER_USERS_TABLE . " set list_" . ((int) $controls->button_data) . "=0");
         $controls->add_message_done();
     }
 }
@@ -66,14 +64,18 @@ $status = array(0 => 'Disabled/Private use', 1 => 'Only on profile page', 2 => '
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th><?php _e('Name', 'newsletter')?></th>
+                        <th><?php _e('Name', 'newsletter') ?></th>
                         <?php if ($is_all_languages) { ?>
-                        <th><?php _e('Visibility', 'newsletter')?></th>
-                        <th><?php _e('Pre-checked', 'newsletter')?></th>
-                        <th><?php _e('Pre-assigned', 'newsletter')?></th>
-                        <th><?php _e('Subscribers', 'newsletter')?></th>
-                        <th>&nbsp;</th>
+                            <th><?php _e('Visibility', 'newsletter') ?></th>
+                            <th><?php _e('Pre-checked', 'newsletter') ?></th>
+                            <th><?php _e('Pre-assigned', 'newsletter') ?></th>
+                            <?php if ($is_multilanguage) { ?>
+                                <th><?php _e('Pre-assigned by language', 'newsletter') ?></th>
+                            <?php } ?>
                         <?php } ?>
+                        <th><?php _e('Subscribers', 'newsletter') ?></th>
+                        <th>&nbsp;</th>
+
                         <th><?php _e('Notes', 'newsletter') ?></th>
                     </tr>
                 </thead>
@@ -82,13 +84,17 @@ $status = array(0 => 'Disabled/Private use', 1 => 'Only on profile page', 2 => '
                         <td><?php echo $i; ?></td>
                         <td><?php $controls->text('list_' . $i, 50); ?></td>
                         <?php if ($is_all_languages) { ?>
-                        <td><?php $controls->select('list_' . $i . '_status', $status); ?></td>
-                        <td><?php $controls->select('list_' . $i . '_checked', array(0 => 'No', 1 => 'Yes')); ?></td>
-                        <td><?php $controls->select('list_' . $i . '_forced', array(0 => 'No', 1 => 'Yes')); ?></td>
-                        <td><?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where list_" . $i . "=1 and status='C'"); ?></td>
-                        
-                        <td><?php $controls->button_confirm('unlink', __('Unlink everyone', 'newsletter'), '', $i); ?></td>
+                            <td><?php $controls->select('list_' . $i . '_status', $status); ?></td>
+                            <td><?php $controls->select('list_' . $i . '_checked', array(0 => 'No', 1 => 'Yes')); ?></td>
+                            <td><?php $controls->select('list_' . $i . '_forced', array(0 => 'No', 1 => 'Yes')); ?></td>
+                            <?php if ($is_multilanguage) { ?>
+                                <td><?php $controls->languages('list_' . $i . '_languages'); ?></td>
+                            <?php } ?>
                         <?php } ?>
+
+                        <td><?php echo $wpdb->get_var("select count(*) from " . NEWSLETTER_USERS_TABLE . " where list_" . $i . "=1 and status='C'"); ?></td>
+                        <td><?php $controls->button_confirm('unlink', __('Unlink everyone', 'newsletter'), '', $i); ?></td>
+
                         <td>
                             <?php $notes = apply_filters('newsletter_lists_notes', array(), $i); ?>
                             <?php
@@ -97,7 +103,7 @@ $status = array(0 => 'Disabled/Private use', 1 => 'Only on profile page', 2 => '
                                 $text .= $note . '<br>';
                             }
                             if (!empty($text)) {
-                            echo '<i class="fa fa-info-circle tnp-notes" title="', esc_attr($text), '"></i>';
+                                echo '<i class="fa fa-info-circle tnp-notes" title="', esc_attr($text), '"></i>';
                             }
                             ?> 
 

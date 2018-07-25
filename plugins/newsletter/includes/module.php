@@ -8,6 +8,7 @@ defined('ABSPATH') || exit;
  * @property bool $forced If the list must be added to every new subscriber
  * @property int $status When and how the list is visible to the subscriber - see constants
  * @property bool $checked If it must be pre-checked on subscription form
+ * @property array $languages The list of language used to pre-assign this list
  * */
 abstract class TNP_List {
 
@@ -939,7 +940,7 @@ class NewsletterModule {
     }
 
     /**
-     * 
+     * @param string $language The language for the list labels (it does not affect the lists returned)
      * @return TNP_List[]
      */
     function get_lists($language = '') {
@@ -960,6 +961,11 @@ class NewsletterModule {
             $list->forced = !empty($data['list_' . $i . '_forced']);
             $list->status = (int) $data['list_' . $i . '_status'];
             $list->checked = !empty($data['list_' . $i . '_checked']);
+            if (empty($data['list_' . $i . '_languages'])) {
+                $list->languages = array();
+            } else {
+                $list->languages = $data['list_' . $i . '_languages'];
+            }
             $lists[$language][] = $list;
         }
         return $lists[$language];
@@ -1167,7 +1173,7 @@ class NewsletterModule {
                 $user = $this->get_user($user);
             }
             $params .= '&nk=' . urlencode($this->get_user_key($user));
-            $language = $this->get_user_language($user->language);
+            $language = $this->get_user_language($user);
         }
 
         if ($email) {
@@ -1197,6 +1203,10 @@ class NewsletterModule {
             $url .= '&nek=' . urlencode($this->get_email_key($email));
         }
         return $url;
+    }
+    
+    function get_subscribe_url() {
+        return $this->build_action_url('s');
     }
 
     function clean_stats_table() {
@@ -1709,7 +1719,21 @@ class NewsletterModule {
         return $url;
     }
 
-    function get_current_language() {
+    /**
+     * Return the current language code. Optionally, if a user is passed and it has a language
+     * the user language is returned.
+     * If there is no language available, an empty string is returned.
+     * 
+     * @param TNP_User $user
+     * @return string The language code
+     */
+    function get_current_language($user = null) {
+        // TODO: Check if the blog is multilanguage?
+        
+        if ($user && $user->language) {
+            return $user->language;
+        }
+        
         if (class_exists('SitePress')) {
             $current_language = apply_filters('wpml_current_language', '');
             if ($current_language == 'all') {
@@ -1739,6 +1763,34 @@ class NewsletterModule {
 
     function is_default_language() {
         return $this->get_current_language() == $this->get_default_language();
+    }
+    
+    /**
+     * Returns an array od languages with key the language code and value the language name.
+     * An empty array is returned if no language is available.
+     */
+    function get_languages() {
+        $language_options = array();
+        if (class_exists('SitePress')) {
+            $languages = apply_filters('wpml_active_languages', null);
+            foreach ($languages as $language) {
+                $language_options[$language['language_code']] = $language['translated_name'];
+            }
+        } else if (function_exists('icl_get_languages')) {
+            $languages = icl_get_languages();
+            foreach ($languages as $code=>$language) {
+                $language_options[$code] = $language['native_name'];
+            }
+        }
+        
+        return $language_options;
+    }
+    
+    function get_language_label($language) {
+        $languages = $this->get_languages();
+        if (isset($languages[$language])) return $languages[$language];
+        return '';
+        
     }
 
     function switch_language($language) {

@@ -269,20 +269,20 @@ function create_custom_forms() {
 
 }
 
-// For Circular
-add_action( 'init', 'create_custom_circular' );
-function create_custom_circular() {
-	register_post_type( 'circular',
+// For notice
+add_action( 'init', 'create_custom_notice' );
+function create_custom_notice() {
+	register_post_type( 'notices',
 		array(
 			'labels' => array(
-				'name' => __( 'Circulars' ),
-				'singular_name' => __( 'Circular' ),
+				'name' => __( 'Notices' ),
+				'singular_name' => __( 'Notice' ),
 				'add_new' => __( 'Add New' ),
 				'add_new_item' => __( 'Add New' ),
-				'edit_item' => __( 'Edit Circular' ),
-				'new_item' => __( 'New Circular' ),
+				'edit_item' => __( 'Edit Notice' ),
+				'new_item' => __( 'New Notice' ),
 				'view_item' => __( 'View' ),
-				'not_found' => __( 'Sorry, we couldn\'t find the Circular you are looking for.' )
+				'not_found' => __( 'Sorry, we couldn\'t find the Notice you are looking for.' )
 			),
 			'public' => true,
 			'publicly_queryable' => true,

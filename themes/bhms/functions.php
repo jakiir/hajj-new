@@ -85,6 +85,18 @@ if ( ! function_exists( 'bhmp_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'bhmp_setup' );
 
+
+require_once __DIR__ . '/lib/cmb2/init.php';
+require_once __DIR__ . '/lib/cmb2/cmb-functions.php';
+
+function add_batword_favicon() {
+   $favicon_path = get_template_directory_uri() . '/favicon.ico';
+   echo '<link rel="shortcut icon" href="' . $favicon_path . '" />';
+}
+
+add_action( 'wp_head', 'add_batword_favicon' ); //front end
+add_action( 'admin_head', 'add_batword_favicon' ); //admin end
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
