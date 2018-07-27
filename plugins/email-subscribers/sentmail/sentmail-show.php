@@ -204,15 +204,18 @@ if (isset($_POST['frm_es_display']) && $_POST['frm_es_display'] == 'yes') {
 				<?php
 			}
 
-			foreach ( $myData as $my_data ) {
-				if ( $my_data['es_sent_status'] == 'In Queue' ) {
-					?>
-					<br>
-					<p>
-						<?php echo __( '<strong>Note:</strong> If you delete record for the emails with Status = <span style="color:#FF0000;">In Queue</span>, then cron job in queue will be deleted too and email will not be sent.', ES_TDOMAIN ); ?>
-					</p>
-					<?php
-				}				
+			global $wpdb;
+			$in_queue = 'In Queue';
+			$query = $wpdb->prepare( "SELECT * FROM {$wpdb->prefix}es_sentdetails WHERE es_sent_status = %s LIMIT 0, 1", $in_queue );
+			$report_id = $wpdb->get_col( $query );
+
+			if ( !empty( $report_id ) ) {
+				?>
+				<br>
+				<p>
+					<?php echo __( '<strong>Note:</strong> If you delete record for the emails with Status = <span style="color:#FF0000;">In Queue</span>, then cron job in queue will be deleted too and email will not be sent.', ES_TDOMAIN ); ?>
+				</p>
+				<?php
 			}
 		?>
 	</div>

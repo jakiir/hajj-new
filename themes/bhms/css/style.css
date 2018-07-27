@@ -3362,12 +3362,7 @@ color: #021020;
 .contact-form-area .wpcf7-response-output{position:relative;top:-83px;border:0;text-align:left;}
 .contact-google-map #google-map{margin:0;}
 .gallery-body iframe,.gallery-body embed{width:100%!important;}
-.page-para h2{
-	font-weight: 600;
-    font-size: 22px;
-    line-height: 30px;
-    color: #18964E;
-}
+
 .panel .panel-heading{
 	font-size: 30px;
     line-height: 36px;
@@ -3385,3 +3380,52 @@ color: #021020;
     padding-bottom: 15px;
 }
 .template-section{padding:45px 0;}
+.page-para h2{
+	font-weight: 600;
+    font-size: 22px;
+    line-height: 30px;
+    color: #18964E;
+}
+.page-para ul li {
+    font-size: 18px;
+    padding-bottom: 8px;
+    list-style: square;
+    list-style-position:inside;
+    line-height: 26px;
+    font-size: 24px;
+    font-family: 'ShonarBanglaRegular';
+}
+.page-para a {
+    font-size: 20px;
+    color: #1B7435;
+    font-weight: bold;
+    line-height: 22px;
+    font-family: 'ShonarBanglaRegular';
+}
+.agency_list_heading {
+	font-size: 25px;
+	font-weight: bold;
+	cursor: pointer;
+}
+.agency_list_heading_active:before {
+	content: '- ';
+	color: green;
+}
+.agency_list_heading_inactive:before {
+	content: '+ ';
+	color: green;
+}
+.paragraph ul{margin:10px 0 0;}
+.paragraph ul li p{display:inline-block;margin-bottom:0;}
+.paragraph .each-category{
+	margin-bottom:10px;
+}
+.panel-theme{
+	border-color: #E9C94C;
+}
+.panel-theme>.panel-heading {
+    color: #fff;
+    background-color: #E9C94C;
+    border-color: #E9C94C;
+}
+.panel-heading p{margin:0;}

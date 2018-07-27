@@ -175,7 +175,8 @@ class es_cls_sendmail {
 		}
 
 		$es_cron_adminmail = get_option('ig_es_cron_adminmail');
-		if($es_cron_adminmail != "") {
+		$ig_es_enable_cron_adminmail = get_option('ig_es_enable_cron_adminmail', 'yes');
+		if("yes" === $ig_es_enable_cron_adminmail && $es_cron_adminmail !== "") {
 			$adminmail = $settings['ig_es_adminemail'];
 			$crondate = date('Y-m-d G:i:s');
 			$count = $count - 1;
@@ -528,14 +529,17 @@ class es_cls_sendmail {
 			es_cls_sentmail::es_sentmail_ups($sendguid, $subject);
 			if( $adminmail != "" ) {
 
+				if( "Cron" === $mailsenttype ){ 
+					return;
+				}
 				$subject = get_option('ig_es_sentreport_subject', 'nosubjectexists');
 				if ( $subject == "" || $subject == "nosubjectexists") {
 					$subject = es_cls_common::es_sent_report_subject();
 				}
 
-				if( $mailsenttype == "Cron" ) {
-					$subject = $subject . " - Cron Email scheduled";
-				}
+				// if( $mailsenttype == "Cron" ) {
+				// 	$subject = $subject . " - Cron Email scheduled";
+				// }
 
 				if( $wp_mail ) {
 					$reportmail = get_option('ig_es_sentreport', 'nooptionexists');

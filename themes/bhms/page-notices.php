@@ -70,7 +70,7 @@ $type = isset($_GET['type'])?$_GET['type']:'';
 				<div class="tab-content notice-board-tab-content">
 				<?php $inc=1; foreach($allYear as $key_year=>$eachYear): ?>
 					<div role="tabpanel" class="tab-pane <?php if($inc==1):?>active<?php endif; ?>" id="notice_<?php echo $key_year; ?>">
-						<div class="panel">	
+						<div class="panel panel-theme">	
 							<?php 
 							foreach($eachYear as $key=>$post_id): 
 								$content_post = get_post($post_id);

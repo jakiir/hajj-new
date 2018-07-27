@@ -1,8 +1,8 @@
 === Newsletter ===
-Tags: newsletter,email,subscription,mass mail,list build,email marketing,direct mailing,automation,automated
+Tags: newsletter,email,subscription,mass mail,list build,email marketing,direct mailing,automation,automated,mailing list
 Requires at least: 3.4.0
 Tested up to: 4.9.7
-Stable tag: 5.6.2
+Stable tag: 5.6.4
 Contributors: satollo,webagile,michael-travan
 
 Add a real newsletter system to your blog. For free. With unlimited newsletters and subscribers.
@@ -107,6 +107,16 @@ Thank you, The Newsletter Team
 3. The Reports extension
 
 == Changelog ==
+
+= 5.6.4 =
+
+* Fixed reactivation message display
+
+= 5.6.3 =
+
+* Removed unused files
+* Fixed few links with permalink disabled and WMPL language as parameter
+* Fixed the minimal form with WPML
 
 = 5.6.2 =
 

@@ -1611,11 +1611,11 @@ class NewsletterSubscription extends NewsletterModule {
     }
 
     function get_subscription_form_minimal($attrs) {
-
+        $language = $this->get_current_language();
         if (!is_array($attrs)) {
             $attrs = array();
         }
-        $options_profile = $this->get_options('profile', $this->get_current_language());
+        $options_profile = $this->get_options('profile', $language);
         $attrs = array_merge(array('class' => '', 'referrer' => 'minimal', 'button' => $options_profile['subscribe'], 'placeholder' => $options_profile['email']), $attrs);
 
         $form = '';
@@ -1628,6 +1628,7 @@ class NewsletterSubscription extends NewsletterModule {
             }
         }
         $form .= '<input type="hidden" name="nr" value="' . esc_attr($attrs['referrer']) . '">';
+        $form .= '<input type="hidden" name="nlang" value="' . esc_attr($language) . '">' . "\n";
         $form .= '<input class="tnp-email" type="email" required name="ne" value="" placeholder="' . esc_attr($attrs['placeholder']) . '">';
         $form .= '<input class="tnp-submit" type="submit" value="' . esc_attr($attrs['button']) . '">';
         if (!empty($this->options_profile['privacy_status'])) {

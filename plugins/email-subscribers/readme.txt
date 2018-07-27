@@ -1,11 +1,11 @@
 === Email Subscribers & Newsletters ===
-Contributors: icegram, niravmehta, Mansi Shah, sandhyam, storeapps, akash123dhawade, Tarun.Parswani, ravioza
+Contributors: icegram, niravmehta, Mansi Shah, sandhyam, storeapps, akash123dhawade, Tarun.Parswani, malayladu
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CPTHCDC382KVA
 Author URI: https://www.icegram.com/
-Tags: email marketing, email newsletter form, email signup, email widget, newsletter, newsletter signup, subscribe, subscription form, bulk emails, signup form, list builder, lead generation
+Tags: subscription, newsletter, email marketing, post notification, email newsletter form, email signup, email widget, newsletter signup, subscribe, subscription form, bulk emails, signup form, list builder, lead generation
 Requires at least: 3.9
-Tested up to: 4.9.6
-Stable tag: 3.5.3
+Tested up to: 4.9.7
+Stable tag: 3.5.4
 License: GPLv3
 License URI: http://www.gnu.org/licenses
 
@@ -118,6 +118,26 @@ Don’t believe it? Have a look at the review section. The support guys are frie
 > **Lightning support** -
 > Had 3 questions about the plugin, got extensive support with each one. Continue doing what you’re doing! Thanks a lot! 5/5
 > - [DomLaurin](https://wordpress.org/support/topic/lightning-support/)
+
+**More Advanced Features**
+
+Check out [Email Subscribers Pro](https://www.icegram.com/email-subscribers-pricing/) to get these features :
+
+* **Protect your list from bot attacks** - Use captcha to protect your email list from bots. The simple maths captcha helps identifying bots from humans and eliminates spam signups.
+
+* **Newsletter email templates** - Elegant newsletter templates to keep your leads engaged with your content       
+
+* **Offer & promotional email templates** - High converting ready-to-use templates for any occasion, events or holiday season.       
+
+* **New blogpost notification email templates** - Awesome templates that will encourage subscribers to read your blog post       
+
+* **List cleanup** - Free your list from fraudulent, invalid email addresses to ensure maximum deliverability rate.
+
+* **Spam testing** - Get your email’s subject line and content scanned thoroughly so that it reaches your subscriber’s inbox and not elsewhere.  
+
+* **Easy utm tracking** - Track success of your email marketing campaigns easily 
+
+* **Customize confirmation and unsubscribe page** - Communicate with subscribers. Redirect them to beautifully designed confirmation and unsubscribe pages on your website.
 
 **Get more benefits by using Email Subscribers with these free plugins**
 
@@ -320,6 +340,15 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 11. Admin page - Delivery Report of emails i.e. email sent, opened, viewed status, viewed date
 
 == Changelog ==
+
+= 3.5.4 (23.07.2018) =
+
+* New: Added option to disable cron email sent to Admin
+* Fix: 'Optimize Table & Delete Records' button not deleting any reports
+* Fix: 'In Queue' notice showing multiple times on Reports tab
+* Update: Sent Report email will be now sent only if sending email immediately
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
 
 = 3.5.3 (02.07.2018) =
 
@@ -806,6 +835,15 @@ Use our free plugin [Email Subscribers - Group Selector](https://wordpress.org/p
 For the changelog of earlier versions, please refer to the separate [changelog.txt](https://plugins.svn.wordpress.org/email-subscribers/trunk/changelog.txt) file.
 
 == Upgrade Notice ==
+
+= 3.5.4 (23.07.2018) =
+
+* New: Added option to disable cron email sent to Admin
+* Fix: 'Optimize Table & Delete Records' button not deleting any reports
+* Fix: 'In Queue' notice showing multiple times on Reports tab
+* Update: Sent Report email will be now sent only if sending email immediately
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
 
 = 3.5.3 (02.07.2018) =
 

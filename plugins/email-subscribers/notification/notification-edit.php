@@ -281,6 +281,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 									<option value='Cron' <?php if($form['es_note_status']=='Cron') { echo 'selected="selected"' ; } ?>><?php echo __( 'Add to cron and send email via cron job', ES_TDOMAIN ); ?></option>
 									<option value='Disable' <?php if($form['es_note_status']=='Disable') { echo 'selected="selected"' ; } ?>><?php echo __( 'Disable email notification', ES_TDOMAIN ); ?></option>
 								</select>
+								<?php do_action('es_after_email_sent_option'); ?>
 							</td>
 						</tr>
 					</tbody>

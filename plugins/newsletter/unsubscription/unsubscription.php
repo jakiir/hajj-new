@@ -66,9 +66,10 @@ class NewsletterUnsubscription extends NewsletterModule {
             case 'reactivate':
                 if ($this->antibot_form_check()) {
                     $user = $this->reactivate();
-                    $this->show_message('reactivated', $user);
+                    $url = $this->build_message_url(null, 'reactivated', $user);
+                    wp_redirect($url);
                 } else {
-                    $this->request_to_antibot_form('Unsubscribe');
+                    $this->request_to_antibot_form('Reactivate');
                 }
                 die();
 

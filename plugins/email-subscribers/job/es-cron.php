@@ -18,6 +18,7 @@ if( (isset($_GET['es'])) && ($_GET['es'] == "cron") ) {
 			if ( !preg_match('/[^a-z]/', $es_c_cronguid_noslash) ) {
 			   	$es_c_cronurl = get_option('ig_es_cronurl');
 				$es_c_croncount = get_option('ig_es_cron_mailcount');
+				$es_c_croncount = apply_filters('es_email_sending_limit', $es_c_croncount );
 				parse_str($es_c_cronurl, $output);
 				if($es_c_cronguid == $output['guid']) {
 					if( !is_numeric($es_c_croncount) ) {	//if $es_c_croncount is coming empty, then set $es_c_croncount should be passed empty?
@@ -36,6 +37,9 @@ if( (isset($_GET['es'])) && ($_GET['es'] == "cron") ) {
 							es_cls_sentmail::es_sentmail_cronmail_ups($cronmailqueue[0]['es_sent_guid']);
 						}
 					}
+					$cronmailqueuecnt = (!empty($cronmailqueuecnt)) ? $cronmailqueuecnt : 0;
+					$response = array('es_remaining_email_count' => $cronmailqueuecnt );
+					echo json_encode($response);
 				}
 			}
 		}

@@ -20,7 +20,7 @@ get_header();
 		<div class="row">
 			<div class="col-md-12">
 				<div class="" id="">
-					<div class="panel">
+					<div class="panel panel-theme">
 					 <div class="panel-heading"><?php the_title(); ?></div>
 						<?php 
 						if ( get_query_var('paged') ) $paged = get_query_var('paged');  

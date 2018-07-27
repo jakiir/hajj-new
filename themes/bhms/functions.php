@@ -85,6 +85,10 @@ if ( ! function_exists( 'bhmp_setup' ) ) :
 endif;
 add_action( 'after_setup_theme', 'bhmp_setup' );
 
+remove_filter('get_the_time', 'qtranxf_timeFromPostForCurrentLanguage',0,3);
+remove_filter('get_the_date', 'qtranxf_dateFromPostForCurrentLanguage',0,3);
+remove_filter('get_the_modified_date', 'qtranxf_dateModifiedFromPostForCurrentLanguage',0,2);
+
 
 require_once __DIR__ . '/lib/cmb2/init.php';
 require_once __DIR__ . '/lib/cmb2/cmb-functions.php';

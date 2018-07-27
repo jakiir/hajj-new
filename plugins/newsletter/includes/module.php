@@ -1158,12 +1158,12 @@ class NewsletterModule {
      * Add to a destination url the parameters to identify the user, the email and to show
      * an alert message, if required. The parameters and them managed by the [newsletter] shortcode.
      * 
-     * @param string $url If empty the standard newsletter page URL is used
-     * @param string $message_key
+     * @param string $url If empty the standard newsletter page URL is used (usually it is empty, but sometime a custom URL has been specified)
+     * @param string $message_key The message identifier
      * @param TNP_User|int $user
      * @param TNP_Email|int $email
-     * @param string $alert
-     * @return string The final url
+     * @param string $alert An optional alter message to be shown. Does not work with custom URLs
+     * @return string The final URL with parameters
      */
     function build_message_url($url = '', $message_key = '', $user = null, $email = null, $alert = '') {
         $params = 'nm=' . urlencode($message_key);
@@ -1194,6 +1194,14 @@ class NewsletterModule {
         return self::add_qs($url, $params, false);
     }
 
+    /**
+     * Builds a standard Newsletter action URL for the specified action.
+     * 
+     * @param string $action
+     * @param TNP_User $user
+     * @param TNP_Email $email
+     * @return string
+     */
     function build_action_url($action, $user = null, $email = null) {
         $url = $this->add_qs($this->get_home_url(), 'na=' . urlencode($action));
         if ($user) {
@@ -1244,18 +1252,21 @@ class NewsletterModule {
 
     function process_ip($ip) {
         $option = Newsletter::instance()->options['ip'];
-        if (empty($option))
+        if (empty($option)) {
             return $ip;
-        if ($option == 'anonymize')
+        }
+        if ($option == 'anonymize') {
             return $this->anonymize_ip($ip);
+        }
         return '';
     }
 
     function anonymize_user($id) {
         global $wpdb;
         $user = $this->get_user($id);
-        if (!$user)
+        if (!$user) {
             return null;
+        }
 
         $user->name = '';
         $user->surname = '';
@@ -1473,15 +1484,15 @@ class NewsletterModule {
                 $text = str_replace('{email_id}', $email->id, $text);
                 $text = str_replace('{email_key}', $nek, $text);
                 $text = str_replace('{email_subject}', $email->subject, $text);
-                $text = $this->replace_url($text, 'EMAIL_URL', $home_url . '?na=v&id=' . $email->id . '&amp;nk=' . $nk);
+                $text = $this->replace_url($text, 'EMAIL_URL', $this->build_action_url('v', $user) . '&id=' . $email->id);
             }
 
 
             //$text = str_replace('{activation_link}', '<a href="{activation_url}">' . $options_subscription['confirmation_label'] . '</a>', $text);
 
 
-            $text = $this->replace_url($text, 'SUBSCRIPTION_CONFIRM_URL', $home_url . '?na=c&nk=' . $nk);
-            $text = $this->replace_url($text, 'ACTIVATION_URL', $home_url . '?na=c&nk=' . $nk);
+            $text = $this->replace_url($text, 'SUBSCRIPTION_CONFIRM_URL', $this->build_action_url('c', $user));
+            $text = $this->replace_url($text, 'ACTIVATION_URL', $this->build_action_url('v', $user));
 
             // Obsolete.
             $text = $this->replace_url($text, 'FOLLOWUP_SUBSCRIPTION_URL', self::add_qs($base, 'nm=fs' . $id_token));
@@ -1489,17 +1500,7 @@ class NewsletterModule {
             $text = $this->replace_url($text, 'FEED_SUBSCRIPTION_URL', self::add_qs($base, 'nm=es' . $id_token));
             $text = $this->replace_url($text, 'FEED_UNSUBSCRIPTION_URL', self::add_qs($base, 'nm=eu' . $id_token));
 
-
-            if (empty($options_profile['profile_url'])) {
-                $profile_url = $home_url . '?na=p&nk=' . $nk;
-            } else {
-                $profile_url = self::add_qs($options_profile['profile_url'], 'nk=' . $nk);
-            }
-
-            $profile_url = apply_filters('newsletter_profile_url', $profile_url, $user);
-            $text = $this->replace_url($text, 'PROFILE_URL', $profile_url);
-
-            $text = $this->replace_url($text, 'UNLOCK_URL', $home_url . '?na=ul&nk=' . $nk);
+            $text = $this->replace_url($text, 'UNLOCK_URL', $this->build_action_url('ul', $user));
         } else {
             $text = $this->replace_url($text, 'SUBSCRIPTION_CONFIRM_URL', '#');
             $text = $this->replace_url($text, 'ACTIVATION_URL', '#');
