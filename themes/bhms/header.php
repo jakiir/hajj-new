@@ -62,37 +62,42 @@
 		<!-- header-area start -->
 		<div class="container">
 			<div class="row">
-				<div class="col-md-12 col-sm-12">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-sm-12">
 					<!-- Brand -->
-					<a class="page-scroll site-logo" href="<?php echo home_url('/'); ?>">
-						<?php if(qtrans_getLanguage() == "en"){ ?>
-							<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/site-logo.png" alt="" title="">
-						<?php } else { ?>
-							<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/site-logo-bn.png" alt="" title="">
-						<?php } ?>		  
-					</a>
-
-					<ul class="navbar-right custom-nav-right">
-						<li>
-							<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/bn-flag.png" alt="">
-							<span id="bn-clock"></span>
-						</li>
-						<li>
-							<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/ksa-flag.png" alt="">
-							<span id="ksa-clock"></span>
-						</li>
-						<li>
-							<form class="top-search-form" action="<?php echo home_url('/'); ?>">
-								<input type="text" autocomplete="off" name="s" class="top-search" placeholder="বাংলা"/>
-								<button type="submit" class="search-button"><i class="fa fa-search"></i></button>
-							</form>
-						</li>
-						<li>
-							<div class="topLanguage">
-								<?php echo qtrans_generateLanguageSelectCode('dropdown'); ?>
+					<div class="row">
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 branding">
+						<a class="page-scroll site-logo" href="<?php echo home_url('/'); ?>">
+							<?php if(qtrans_getLanguage() == "en"){ ?>
+								<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/hms_logo.png" alt="" title="">
+							<?php } else { ?>
+								<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/hms_bangla_logo2.png" alt="" title="">
+							<?php } ?>		  
+						</a>
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+							<div class="col-xs-12 col-sm-12 col-md-12 col-sm-12">
+								<div class="font-text">
+									<?php echo qtrans_generateLanguageSelectCode('dropdown'); ?>
+								</div>
 							</div>
-						</li>
-					</ul>
+							<div class="col-xs-12 col-sm-12 col-md-12 col-sm-12 topSearchDiv">
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/bn-flag.png" alt="">
+									<span id="bn-clock"></span>
+								</div>
+								<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+									<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/ksa-flag.png" alt="">
+									<span id="ksa-clock"></span>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 pull-right" style="padding-right:0;">
+									<form class="top-search-form" action="<?php echo home_url('/'); ?>">
+										<input type="text" autocomplete="off" name="s" class="top-search" placeholder="বাংলা"/>
+										<button type="submit" class="search-button"><i class="fa fa-search"></i></button>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -81,7 +81,7 @@ $type = isset($_GET['type'])?$_GET['type']:'';
 								$file_circular = get_post_meta( $post_id, 'file_circular', true );
 							?>
 							<div class="panle-body notice-box">
-								<p class="notice-box-time"><?php echo date('F j, Y',strtotime($postDate)); ?></p>
+								<p class="notice-box-time"><?php echo the_time('F j, Y',strtotime($postDate)); ?></p>
 								<h2><?php echo $content_post->post_title; ?></h2>
 								<p><?php echo get_the_post_thumbnail($post_id, 'all-news', array('class' => 'news-imgage')); ?>
                                 <?php echo $content; ?></p>

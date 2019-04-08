@@ -1,0 +1,2 @@
+[16-Aug-2018 01:08:55 America/New_York] PHP Fatal error:  Call to undefined function get_header() in /home/demohajjgov/public_html/wp-content/themes/bhms/index.php on line 15
+[16-Aug-2018 01:09:08 America/New_York] PHP Fatal error:  Call to undefined function get_header() in /home/demohajjgov/public_html/wp-content/themes/bhms/index.php on line 15

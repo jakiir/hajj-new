@@ -145,8 +145,8 @@ body {
   text-align: left;
   overflow-x: hidden;
   line-height: 22px;
+  border-top: 8px solid #338f1a;
 }
-
 /* Back to top button */
 .back-to-top {
   position: fixed;
@@ -467,7 +467,7 @@ div#preloader {
 --------------------------------*/
 .slider-info {
   position: absolute;
-  bottom: 40px;
+  bottom: 120px;
   z-index: 100;
   left: 5%;
   right: 5%;
@@ -2431,12 +2431,13 @@ span.email-notes {
 }
 .site-logo{
 	display: inline-block;
-  padding: 6px 0;
+	padding:0;
 }
+.site-logo img{height:80px;}
 .top-search-form{
 	position:relative;
-	float:right;
 	margin: 0;
+	float:right;
 }
 .top-search{margin-top:0px;padding-left:30px;border:1px solid #ddd;}
 .top-search-form .search-button{
@@ -2452,16 +2453,16 @@ span.email-notes {
 .slider-search-box{
 	position:absolute;
 	z-index:999;
-	top: 200px;
-  left: 100px;
-  width:550px;
+	bottom: 10px;
+    left: 68px;
+    width: 550px;
 }
 .slider-search-box .tab-content{
 	width: 100%;
-  background: #18964E;
-  border: 1px solid #18964E;
-  border-radius: 3px;
-  padding: 0;
+	background: #18964E;
+	border: 1px solid #18964E;
+	border-radius: 3px;
+	padding: 0;
 }
 .slider-search-box .search-box{
 	width: 80%;
@@ -3265,6 +3266,7 @@ color: #021020;
   float: left;
     padding: 15px 10px;
 }
+.langDropdown{padding: 0px 10px!important;}
 .awesome-weather-attribution{display:none;}
 .awesome-weather-current-temp{font-size:37px;display:inline;}
 .awesome-weather-header{
@@ -3429,3 +3431,53 @@ color: #021020;
     border-color: #E9C94C;
 }
 .panel-heading p{margin:0;}
+.globalClock{
+	width: 100% !important;
+    overflow: hidden;
+    background: #edebeb;
+    border-radius: 0 0 10px 10px;
+    padding: 0 !important;
+    margin: 10px 0;
+}
+.globalClock .cont-header {
+    background: #08782b;
+    padding: 9px 18px;
+    font-weight: bold;
+    border-radius: 8px 8px 0px 0px;
+    text-shadow: 0 2px #000;
+    height: 40px;
+}
+
+.globalClock .cont-header h2 {
+    font-size:22px;
+    font-family: Verdana, Geneva, sans-serif;
+    color: #fff;
+	line-height:20px;
+}
+.globalClock .top-pad h3 {
+    color: #085b8f !important;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 !important;
+    padding-bottom: 5px;
+    text-align: center;
+}
+.topSearchDiv{
+	margin-top:10px;
+}
+.font-text {
+    float: right;
+    background: none repeat scroll 0 0 #338F1A;
+    border-radius: 0 0 6px 6px;
+    color: #FFFFFF;
+    margin-left: 20px;
+    margin-top: -5px;
+    padding: 1px 4px;
+}
+.font-text select {
+    background: none repeat scroll 0 0 #338F1A !important;
+    border: medium none;
+    border-radius: 1px 0 7px 7px;
+    color: #FFFFFF;
+    padding: 1px 3px 1px;
+}
