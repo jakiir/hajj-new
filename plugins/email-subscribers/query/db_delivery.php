@@ -137,7 +137,16 @@ class es_cls_delivery {
 									ORDER BY es_deliver_id
 									LIMIT 0, $limit", array( "Cron", "In Queue", $sentguid ) );
 		$arrRes = $wpdb->get_results( $query, ARRAY_A );
-
+		if(count($arrRes) > 0){
+			foreach ($arrRes as $res) {
+				$ids[] = $res['es_deliver_id']; 
+			}
+			$id_str = implode(",", $ids);
+		    $update_sql = $wpdb->prepare( "UPDATE {$wpdb->prefix}es_deliverreport 
+										SET es_deliver_sentstatus = %s 
+		 									WHERE es_deliver_id IN (%s)", "Sending", $id_str );
+			$wpdb->query( $update_sql );
+		}
 		return $arrRes;
 
 	}

@@ -80,6 +80,11 @@ $status = array(0 => 'Disabled/Private use', 1 => 'Only on profile page', 2 => '
                     </tr>
                 </thead>
                 <?php for ($i = 1; $i <= NEWSLETTER_LIST_MAX; $i++) { ?>
+                <?php 
+                if (!$is_all_languages && empty($controls->data['list_' . $i])) { 
+                    continue;
+                }
+                ?>
                     <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php $controls->text('list_' . $i, 50); ?></td>

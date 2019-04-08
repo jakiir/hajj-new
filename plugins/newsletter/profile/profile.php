@@ -197,7 +197,7 @@ class NewsletterProfile extends NewsletterModule {
         $buffer = '';
 
         $buffer .= '<div class="tnp tnp-profile">';
-        $buffer .= '<form action="' . esc_attr($this->get_home_url() . '?na=ps') . '" method="post" onsubmit="return newsletter_check(this)">';
+        $buffer .= '<form action="' . $this->build_action_url('ps') . '" method="post" onsubmit="return newsletter_check(this)">';
         $buffer .= '<input type="hidden" name="nk" value="' . esc_attr($user->id . '-' . $user->token) . '">';
 
         $buffer .= '<div class="tnp-field tnp-field-email">';

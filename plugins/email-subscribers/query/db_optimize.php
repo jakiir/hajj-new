@@ -16,7 +16,7 @@ class es_cls_optimize {
 			$sSql = $wpdb->prepare( "DELETE
 										FROM {$wpdb->prefix}es_sentdetails
 										WHERE 1 = %d
-										ORDER BY es_sent_id ASC LIMIT".$delete, 1 );
+										ORDER BY es_sent_id ASC LIMIT ".$delete, 1 );
 			$wpdb->query( $sSql );
 		}
 

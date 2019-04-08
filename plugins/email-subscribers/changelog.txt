@@ -4,6 +4,15 @@ Author		: Icegram
 Author URI	: https://www.icegram.com/
 License		: GPLv3
 
+***********************************************************Version 3.5.4************************************************************
+
+* New: Added option to disable cron email sent to Admin
+* Fix: 'Optimize Table & Delete Records' button not deleting any reports
+* Fix: 'In Queue' notice showing multiple times on Reports tab
+* Update: Sent Report email will be now sent only if sending email immediately
+* Update: POT file
+* Localization: Made all translation files up-to-date with latest POT file
+
 ***********************************************************Version 3.5.3************************************************************
 
 * Fix: Notices on Subscribers -> Sync page (Illegal string offset ‘es_registered’ & ‘es_registered_group’)

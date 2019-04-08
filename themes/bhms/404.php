@@ -9,12 +9,11 @@
 
 get_header();
 ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
-
-			<section class="error-404 not-found">
-				<header class="page-header">
+<section class="template-section">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 error-404 not-found">
+				<header class="section-headline text-left">
 					<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'bhmp' ); ?></h1>
 				</header><!-- .page-header -->
 
@@ -51,10 +50,10 @@ get_header();
 					?>
 
 				</div><!-- .page-content -->
-			</section><!-- .error-404 -->
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+			</div><!-- .error-404 -->
+		</div><!-- #row -->
+		</div><!-- #container -->
+	</div><!-- #template-section -->
 
 <?php
 get_footer();

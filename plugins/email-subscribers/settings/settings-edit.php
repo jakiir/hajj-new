@@ -163,14 +163,14 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 			<tr class="es-admin active-settings">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Sent Report Subject', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Subject for the email report which will be sent to admin.', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'Subject for the email report which will be sent to admin.<br />(Will be sent only if sending email via immediately)', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><input name="es_c_sentreport_subject" type="text" id="es_c_sentreport_subject" value="<?php echo esc_html(stripslashes($this->form['ig_es_sentreport_subject'])); ?>" size="60" maxlength="225" /></td>
 			</tr>
 			<tr class="es-admin active-settings">
 				<th scope="row">
 					<label for="elp"><?php echo __( 'Sent Report Content', ES_TDOMAIN ); ?>
-					<p class="description"><?php echo __( 'Content for the email report which will be sent to admin.<br />Available Keywords: {{COUNT}}, {{UNIQUE}}, {{STARTTIME}}, {{ENDTIME}}', ES_TDOMAIN ); ?></p></label>
+					<p class="description"><?php echo __( 'Content for the email report which will be sent to admin.<br />Available Keywords: {{COUNT}}, {{UNIQUE}}, {{STARTTIME}}, {{ENDTIME}}<br />(Will be sent only if sending email via immediately)', ES_TDOMAIN ); ?></p></label>
 				</th>
 				<td><textarea size="100" id="es_c_sentreport" rows="8" cols="58" name="es_c_sentreport"><?php echo esc_html(stripslashes($this->form['ig_es_sentreport'])); ?></textarea></td>
 			</tr>
@@ -371,6 +371,7 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 					<input type="text" name="es_cron_url" id="es_cron_url" value="<?php echo $this->form['ig_es_cronurl']; ?>" size="68" readonly />
 				</td>
 			</tr>
+			<?php do_action('es_after_cron_url', $this->form); ?>
 			<tr class="es-cron hidden">
 				<th scope="row">
 					<label for="tag-image"><?php echo __( 'Email Count', ES_TDOMAIN ); ?>
@@ -389,6 +390,7 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 					</label>
 				</th>
 				<td>
+					<label><input type="checkbox" name="ig_es_enable_cron_adminmail" value="yes" <?php ( !empty( $this->form['ig_es_enable_cron_adminmail'] ) ) ? checked( $this->form['ig_es_enable_cron_adminmail'], 'yes' ) : ''; ?>/><?php echo __( 'Enabling this will send a cron report email on every successfully cron hit', ES_TDOMAIN ); ?></label><br/><br/>
 					<textarea size="100" id="es_cron_adminmail" rows="7" cols="72" name="es_cron_adminmail"><?php echo esc_html(stripslashes($this->form['ig_es_cron_adminmail'])); ?></textarea>
 				</td>
 			</tr>
@@ -504,6 +506,7 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 				$es_cron_adminmail = get_option('ig_es_cron_adminmail');
 			}
 			$form['ig_es_cron_adminmail'] = $es_cron_adminmail;
+			$form['ig_es_enable_cron_adminmail'] = get_option('ig_es_enable_cron_adminmail', 'yes');
 
 			// Form submitted, check & update the data in options table
 			if (isset($_POST['es_form_submit']) && $_POST['es_form_submit'] == 'yes') {
@@ -570,7 +573,8 @@ if ( ! class_exists( 'ES_Settings' ) ) {
 				}
 
 				$form['ig_es_cron_adminmail'] = isset($_POST['es_cron_adminmail']) ? $_POST['es_cron_adminmail'] : '';
-
+				$ig_es_enable_cron_adminmail = (!empty($_POST['ig_es_enable_cron_adminmail']) && $_POST['ig_es_enable_cron_adminmail'] === 'yes') ? 'yes' : 'no';
+				$form['ig_es_enable_cron_adminmail'] = $ig_es_enable_cron_adminmail;
 				// No errors found, we can add the settings to the options
 				if ($es_error_found == FALSE) {
 					$action = "";

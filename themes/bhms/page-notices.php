@@ -70,7 +70,7 @@ $type = isset($_GET['type'])?$_GET['type']:'';
 				<div class="tab-content notice-board-tab-content">
 				<?php $inc=1; foreach($allYear as $key_year=>$eachYear): ?>
 					<div role="tabpanel" class="tab-pane <?php if($inc==1):?>active<?php endif; ?>" id="notice_<?php echo $key_year; ?>">
-						<div class="panel">	
+						<div class="panel panel-theme">	
 							<?php 
 							foreach($eachYear as $key=>$post_id): 
 								$content_post = get_post($post_id);
@@ -81,7 +81,7 @@ $type = isset($_GET['type'])?$_GET['type']:'';
 								$file_circular = get_post_meta( $post_id, 'file_circular', true );
 							?>
 							<div class="panle-body notice-box">
-								<p class="notice-box-time"><?php echo date('F j, Y',strtotime($postDate)); ?></p>
+								<p class="notice-box-time"><?php echo the_time('F j, Y',strtotime($postDate)); ?></p>
 								<h2><?php echo $content_post->post_title; ?></h2>
 								<p><?php echo get_the_post_thumbnail($post_id, 'all-news', array('class' => 'news-imgage')); ?>
                                 <?php echo $content; ?></p>

@@ -3,11 +3,11 @@
  * Plugin Name: Email Subscribers & Newsletters
  * Plugin URI: https://www.icegram.com/
  * Description: Add subscription forms on website, send HTML newsletters & automatically notify subscribers about new blog posts once it is published.
- * Version: 3.5.3
+ * Version: 3.5.4
  * Author: Icegram
  * Author URI: https://www.icegram.com/
  * Requires at least: 3.9
- * Tested up to: 4.9.6
+ * Tested up to: 4.9.7
  * Text Domain: email-subscribers
  * Domain Path: /languages/
  * License: GPLv3
@@ -38,6 +38,7 @@ add_action( 'admin_init', array( 'es_cls_registerhook', 'dismiss_admin_notice' )
 add_shortcode( 'email-subscribers', 'es_shortcode' );
 
 add_action( 'wp_ajax_es_klawoo_subscribe', array( 'es_cls_registerhook', 'klawoo_subscribe' ) );
+add_action( 'wp_ajax_es_submit_survey', array( 'es_cls_registerhook', 'es_submit_survey' ) );
 
 require_once(dirname(__FILE__).DIRECTORY_SEPARATOR.'classes'.DIRECTORY_SEPARATOR.'es-directly.php');
 

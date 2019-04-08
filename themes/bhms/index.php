@@ -38,6 +38,39 @@ get_header();
 				}
 			}
 			?>
+		</div>		
+		<!-- Slider Footer Info -->
+		<div class="slider-info">
+			<div class="col-md-4">
+				<div class="slider-info-inner">
+					<h4>Haj Flight Starts in</h4>
+					<p>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Minutes</span>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="slider-info-inner">
+					<h4>Haj Starts in</h4>
+					<p>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Minutes</span>
+					</p>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="slider-info-inner">
+					<h4>Return Flight Starts in</h4>
+					<p>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
+						<span class="slider-info-time">60</span> <span class="slider-info-text">Minutes</span>
+					</p>
+				</div>
+			</div>
 		</div>
 		<div class="slider-search-box">
 			<div class="col-md-12 col-sm-12 col-xs-12">
@@ -95,39 +128,6 @@ get_header();
 							</form>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<!-- Slider Footer Info -->
-		<div class="slider-info">
-			<div class="col-md-4">
-				<div class="slider-info-inner">
-					<h4>Haj Flight Starts in</h4>
-					<p>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Minutes</span>
-					</p>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="slider-info-inner">
-					<h4>Haj Starts in</h4>
-					<p>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Minutes</span>
-					</p>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="slider-info-inner">
-					<h4>Return Flight Starts in</h4>
-					<p>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Days</span>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Hours</span>
-						<span class="slider-info-time">60</span> <span class="slider-info-text">Minutes</span>
-					</p>
 				</div>
 			</div>
 		</div>
@@ -402,33 +402,8 @@ get_header();
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div style="background:#F1F1F1;padding:8px 17px 17px;">
-						<div class="section-headline text-left">
-							<h2>
-								<?php if(qtrans_getLanguage() == "en"){ ?>
-									Weather
-								<?php } else { ?>
-									আবহাওয়া
-								<?php } ?>
-							</h2>
-						</div>
-						<div class="weather text-left">
-							<div class="weather-inner" style="margin-bottom: 10px;">
-								<?php 
-									echo do_shortcode( '[awesome-weather location="Dhaka" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
-								?>
-							</div>
-
-							<div class="weather-inner">
-								<?php 
-									echo do_shortcode( '[awesome-weather location="Mecca" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
-								?>
-
-							</div>
-						</div>
-					</div>
-				</div>
-
+					 <?php get_sidebar(); ?>
+			    </div>
 			</div>
 		</div>
 	</div>
@@ -450,11 +425,16 @@ get_header();
 						<p>
 							If you would like to learn more about the rituals of Hajj, please download our Hajj Guide app fromt he Play Store.
 						</p>
-						<p>
-							<a href="https://play.google.com/store/apps/details?id=com.bat.pilgrimguide" target="_blank" alt="Hajj Guide" title="Hajj Guide">
-								<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/google-playstore.png" class="img-responsive"/>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12 pull-left">
+							<a target="_blank" href="https://itunes.apple.com/sa/app/haj-guide/id1387764857?mt=8">
+								<img class="img-responsive" src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/apple-store-logo.png" align="Pilgrim guide mobile app">
 							</a>
-						</p>
+						</div>
+						<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12 pull-left">
+							<a href="https://play.google.com/store/apps/details?id=com.bat.pilgrimguide" target="_blank" alt="Hajj Guide" title="Hajj Guide">
+								<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/google-pay-pilgrim-guide.png" class="img-responsive"/>
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

@@ -139,6 +139,7 @@ if ($es_error_found == TRUE && isset($es_errors[0]) == TRUE) {
 							<option value='Immediately' <?php if($es_sent_type == 'Immediately') { echo "selected='selected'" ; } ?>><?php echo __( 'Send email immediately', ES_TDOMAIN ); ?></option>
 							<option value='Cron' <?php if($es_sent_type == 'Cron') { echo "selected='selected'" ; } ?>><?php echo __( 'Send email via cron job', ES_TDOMAIN ); ?></option>
 						</select>
+						<?php do_action('es_after_email_sent_option'); ?>
 					</td>
 				</tr>
 				<tr>

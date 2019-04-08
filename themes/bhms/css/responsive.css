@@ -22,6 +22,13 @@
 /* Tablet desktop :768px. */
 
 @media (min-width: 768px) and (max-width: 991px) {
+  .slider-info{
+	position: inherit;
+    bottom: 0;
+    left: 0;
+    background: #333;
+    padding: 15px;
+  }
   .main-menu ul.navbar-nav li {
     display: inline-block;
     padding: 0 8px;
@@ -119,7 +126,6 @@
 /* small mobile :320px. */
 
 @media (max-width: 767px) {
-
   .header-area {
     background: #18954D;
   }
@@ -285,6 +291,17 @@
   li.threaded-comments {
     margin-left: 0;
   }
+  .slider-info{
+	position: inherit;
+    bottom: 0;
+    left: 0;
+    background: #333;
+    padding: 15px;
+  }
+  .slider-search-box ul.nav li a{font-size:12px;}
+  .slider-search-box .tab-content{width:80%;}
+  .slider-search-box .search-box {width:70%;}
+  .slider-search-box .search-button{width:30%;}
 }
 
 /* Large Mobile :480px. */
@@ -312,4 +329,15 @@
   .tab-menu ul.nav li a {
     padding: 8px 20px;
   }
+  .slider-info{
+	position: inherit;
+    bottom: 0;
+    left: 0;
+    background: #333;
+    padding: 15px;
+  }
+  .slider-search-box ul.nav li a{font-size:12px;}
+  .slider-search-box .tab-content{width:80%;}
+  .slider-search-box .search-box {width:70%;}
+  .slider-search-box .search-button{width:30%;}
 }

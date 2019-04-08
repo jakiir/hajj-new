@@ -11,7 +11,7 @@
 <div id="post-<?php the_ID(); ?>" class="sigle-page area-padding">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-7 col-sm-7 col-xs-12">
+			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="section-headline text-left">
 					<?php
 					if ( is_singular() ) :
