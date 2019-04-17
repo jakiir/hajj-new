@@ -2433,7 +2433,7 @@ span.email-notes {
 	display: inline-block;
 	padding:0;
 }
-.site-logo img{height:80px;}
+.site-logo img{height:99px;}
 .top-search-form{
 	position:relative;
 	margin: 0;
@@ -2556,7 +2556,7 @@ ul.application-step {
 .application-step li {
 	padding-left: 2.3em;
 	text-indent: -.7em;
-	color: #969696;
+	color: #000;
 	position: relative;
 	line-height: 28px;
 	font-size: 13px;
@@ -2577,11 +2577,11 @@ ul.application-step {
   font-size: 33px;
   padding: 15px;
 }
-.application-next-instr{color:#787878;font-size:14px;font-weight:bold;padding:0 16px 10px;line-height:25px;text-align: left;}
+.application-next-instr{color:#000;font-size:14px;font-weight:bold;padding:0 16px 10px;line-height:25px;text-align: left;}
 .process-icon img{margin:0 auto;}
 .process-rule{
 	text-align: center;
-  color: #858585;
+  color: #000;
   font-weight: bold;
   font-size: 25px;
   padding: 15px;

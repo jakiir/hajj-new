@@ -371,12 +371,13 @@ get_header();
 									$menuID = $menuLocations['usefull-menu'];
 									$primaryNav = wp_get_nav_menu_items($menuID);
 									foreach ( $primaryNav as $navItem ) {
-										$usefullId = $navItem->object_id;
-										$postId = wp_get_attachment_image_src( get_post_thumbnail_id( $postId ), 'single-post-thumbnail' );
-										$usefull_pic = get_stylesheet_directory_uri().'/img/no-image.jpg';
+										$postId = $navItem->object_id;
+										$usfull_thum = wp_get_attachment_image_src( get_post_thumbnail_id( $postId ), 'single-post-thumbnail' );
+										$usefull_pic = '';
 										if (!empty($usfull_thum[0])) {
 											$usefull_pic = $usfull_thum[0];
 										}
+									if(!empty($usefull_pic)){
 								?>
 								<div class="single-link">
 									<div class="single-team-member">
@@ -400,6 +401,7 @@ get_header();
 									</div>
 								</div>
 								<?php 
+									}
 									}
 								?>
 								<!-- End column -->
