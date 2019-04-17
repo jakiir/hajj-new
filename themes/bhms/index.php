@@ -241,7 +241,13 @@ get_header();
 																	<p><?php echo $messages_designation; ?></p>
 																</span>
 															</div>
-															<div class="pilgrim-feed"><?php echo $post_content; ?></div>
+															<div class="pilgrim-feed"><?php echo $post_content; ?><a href="<?php echo get_permalink( $postId ); ?>">
+															<?php if(qtrans_getLanguage() == "en"){ ?>
+																more
+															<?php } else { ?>
+																আরো
+															<?php } ?>
+															</a></div>
 														</div>
 													</div>
 												</div>

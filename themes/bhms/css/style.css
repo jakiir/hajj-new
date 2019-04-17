@@ -2501,6 +2501,7 @@ span.email-notes {
 .head-title .main-title{color:#444;font-weight:bold;font-size:14px;}
 .head-title .view-all a{color:#219653;font-size:13px;float:right;text-transform: uppercase;font-weight: 500;}
 ul.notice-area-content li{font-weight: normal;color: #333333;border-bottom:1px solid #ddd;padding:14px 0;text-align:left;}
+.area-padding{padding:8px 0 0;}
 ul.notice-area-content li .notice-date-time{color: #219653;}
 .pilgrim-area{
 	background: #FFFFFF;
@@ -3480,4 +3481,14 @@ color: #021020;
     border-radius: 1px 0 7px 7px;
     color: #FFFFFF;
     padding: 1px 3px 1px;
+}
+.topSearchDiv .headerClock{
+	margin-top: -24px;
+}
+.headerClock h3{
+	font-size: 11px;
+    position: absolute;
+    left: 36px;
+    top: 8px;
+    font-weight: bold;
 }
