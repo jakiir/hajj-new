@@ -281,7 +281,7 @@ div#preloader {
 .main-menu ul.navbar-nav li a {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
   color: #fff;
-  font-size: 15px;
+  font-size: 16px;
   font-weight: 500;
   padding: 24px 0px;
   text-transform: capitalize;
@@ -289,7 +289,7 @@ div#preloader {
 }
 
 .main-menu ul.navbar-nav li.active a::after,.main-menu ul.navbar-nav li.current-menu-item a::after {
-  border: 1px solid #fff;
+  border: 1px solid #FFCC00;
   bottom: 0px;
   content: "";
   left: 0;
@@ -299,21 +299,21 @@ div#preloader {
 
 .main-menu ul.navbar-nav li.active a:hover,.main-menu ul.navbar-nav li.current-menu-item a:hover {
   background: none;
-  color: #fff;
+  color: #FFCC00;
 }
 
 .main-menu ul.navbar-nav li.active a:focus,.main-menu ul.navbar-nav li.current-menu-item a:focus {
-  color: #fff;
+  color: #FFCC00;
 }
 
 .main-menu ul.navbar-nav li.active a,.main-menu ul.navbar-nav li.current-menu-item a {
   background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  color: #fff;
+  color: #FFCC00;
   position: relative;
 }
 
 .main-menu ul.navbar-nav li a:hover {
-  color: #3EC1D5;
+  color: #FFCC00;
 }
 
 .navbar {
@@ -1008,7 +1008,7 @@ div#preloader {
 .team-content>h4, .team-content>p,.team-content>h4>a {
 	color: #219653;
 	margin-bottom: 5px;
-	font-size: 15px;
+	font-size: 12px;
 	font-weight: 500;
 }
 
@@ -1463,7 +1463,12 @@ div#preloader {
 }
 
 .testimonial-content {
-  margin-bottom: 15px;
+	margin-bottom: 15px;
+	background: #FFFFFF;
+	border: 1px solid rgba(0, 0, 0, 0.06);
+	box-sizing: border-box;
+	box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
+	border-radius: 3px;
 }
 
 .testimonial-carousel.owl-carousel.owl-theme .owl-controls .owl-dots div.owl-dot {
@@ -2504,11 +2509,6 @@ ul.notice-area-content li{font-weight: normal;color: #333333;border-bottom:1px s
 .area-padding{padding:8px 0 0;}
 ul.notice-area-content li .notice-date-time{color: #219653;}
 .pilgrim-area{
-	background: #FFFFFF;
-	border: 1px solid rgba(0, 0, 0, 0.06);
-	box-sizing: border-box;
-	box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.06);
-	border-radius: 3px;
 	width: 400px;
 }
 .pilgrim-area .pilgrim-item{padding:15px;text-align:left;}
@@ -2690,7 +2690,7 @@ ul.application-step {
   font-family: 'ShonarBanglaRegular';
 }
 .usefull-carousel .single-link{
-	padding: 10px;
+	padding:0;
 }
 .pilgrim-feed img{height:120px;}
 .topLanguage{
@@ -3242,12 +3242,14 @@ background-color: #FF7929;
  .End CSS
 ----------------------------------------*/
 .weather-inner {
-  background: #FFFFFF;
+  /*background: #FFFFFF;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.12);
   border-radius: 5px;
   overflow: hidden;
-  /*padding: 20px;*/
+  padding: 20px;*/
 }
+.top-pad{padding-top:15px;}
+.bottom-pad{padding-bottom:15px;}
 .weather-text {
   font-style: normal;
   font-weight: normal;
@@ -3319,6 +3321,8 @@ color: #021020;
 }
 .contact-head span{color:#18954D;}
 .contact-area .section-headline{color:#000;}
+.section-headline h1{line-height: 20px;font-size: 14pt;font-weight: bold;}
+.wrapper_hajj_reg h3{line-height: 20px;font-size: 14pt;font-weight: bold;}
 .contact-box{width:80%;margin:0 auto;}
 .contact-box .panel{background:#F9F9FA;}
 .contact-title{font-size:14px;color:#FE9261;}
@@ -3491,4 +3495,60 @@ color: #021020;
     left: 36px;
     top: 8px;
     font-weight: bold;
+}
+.services1 {
+	width:100% !important;
+	overflow:hidden;
+	background:#edebeb;
+	border-radius:0 0 10px 10px;
+	padding:0 !important;
+	margin:10px 0;
+}
+.services1 p {
+	font-family: 'ShonarBanglaRegular';
+	line-height: 22px;
+	padding: 12px 12px 15px;
+	font-size:18px;
+	color:#212121;
+}
+.services1 p a {
+	color:#006927;
+	font-size:22px;
+	line-height:22px;
+	font-weight:bold;
+}
+.services1 p a:hover {
+	color:#0677B7;
+}
+.cont-header {
+    font-size: 19px;
+    font-family: Verdana, Geneva, sans-serif;
+    /* color: #ffcc00; */
+    color: #fff;
+    background: #08782b;
+    font-weight: bold;
+    border-radius: 8px 8px 0px 0px;
+    text-shadow: 0 2px #000;
+    height:40px;
+	display: table;
+    width: 100%;
+}
+.hajjContact .infoLogo img {
+    margin: 0 auto;
+}
+.hajjContact .infoText {
+    color: #08782B;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 12px;
+}
+.hajjContact h2 {
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 18px;
+    color: #fff;
+    text-shadow: none;
+	vertical-align: middle;
+    display: table-cell;
 }

@@ -189,17 +189,17 @@ get_header();
 				<!-- single-well end-->
 				<div class="col-md-5 col-sm-5 col-xs-12">
 					<div class="well-middle">
-						<div class="single-well">
-							<p class="head-title">
-								<span class="main-title">
-									<?php if(qtrans_getLanguage() == "en"){ ?>
-										Message for Pilgrims
-									<?php } else { ?>
-										হজযাত্রীর জন্য বার্তা
-									<?php } ?>
-								</span>
-							</p>
-							<div class="pilgrim-area">
+						<div class="single-well">							
+							<div class="pilgrim-area pull-right">
+								<p class="head-title">
+									<span class="main-title">
+										<?php if(qtrans_getLanguage() == "en"){ ?>
+											Message for Pilgrims
+										<?php } else { ?>
+											হজযাত্রীর জন্য বার্তা
+										<?php } ?>
+									</span>
+								</p>
 								<!-- Start testimonials Start -->
 								<div class="testimonial-content text-center">
 									<!-- start testimonial carousel -->
@@ -278,7 +278,7 @@ get_header();
 					<div class="section-headline text-center">
 						<h2>
 							<?php if(qtrans_getLanguage() == "en"){ ?>
-								Pre-application Process
+								Pre-registration Process
 							<?php } else { ?>
 								প্রাক-নিবন্ধনের ধাপ
 							<?php } ?>
@@ -287,61 +287,69 @@ get_header();
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-3 col-sm-3 col-xs-12 col-no-padding odd">
-					<div class="process-top">
-						<div class="process-number">১</div>
-						<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/draft.jpg" class="img-responsive" width="40" height="auto"/></div>
-						<div class="process-rule">যা লাগবে</div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="col-no-padding odd">
+						<div class="process-top">
+							<div class="process-number">১</div>
+							<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/draft.jpg" class="img-responsive" width="40" height="auto"/></div>
+							<div class="process-rule">যা লাগবে</div>
+						</div>
+						<ul class="application-step">
+							<li>জাতীয় পরিচয়পত্র</li>
+							<li>১৮ বছরের নীচের হজযাত্রীর জন্য জন্মনিবন্ধন সনদ</li>
+							<li>প্রবাসী বাংলাদেশীদের, প্রবাস সংক্রান্ত কাগজপত্র</li>
+							<li>মোবাইল নম্বর</li>
+							<li>প্রাক-নিবন্ধনের জন্য সরকার নির্ধারিত ফি ও জামানতের টাকা</li>
+						</ul>
+						<div class="application-next-instr">এসব কাগজ ও টাকাসহ ধাপ-২ অনুসরণ করুন</div>
 					</div>
-					<ul class="application-step">
-						<li>জাতীয় পরিচয়পত্র</li>
-						<li>১৮ বছরের নীচের হজযাত্রীর জন্য জন্মনিবন্ধন সনদ</li>
-						<li>প্রবাসী বাংলাদেশীদের, প্রবাস সংক্রান্ত কাগজপত্র</li>
-						<li>মোবাইল নম্বর</li>
-						<li>প্রাক-নিবন্ধনের জন্য সরকার নির্ধারিত ফি ও জামানতের টাকা</li>
-					</ul>
-					<div class="application-next-instr">এসব কাগজ ও টাকাসহ ধাপ-২ অনুসরণ করুন</div>
 				</div>
-				<div class="col-md-3 col-sm-3 col-xs-12 col-no-padding even">
-					<div class="process-top">
-						<div class="process-number">২</div>
-						<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/contacting-icon.png" class="img-responsive" width="100" height="auto"/></div>
-						<div class="process-rule">কোথায় যেতে হবে</div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="col-no-padding even">
+						<div class="process-top">
+							<div class="process-number">২</div>
+							<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/contacting-icon.png" class="img-responsive" width="100" height="auto"/></div>
+							<div class="process-rule">কোথায় যেতে হবে</div>
+						</div>
+						<div class="application-next-instr">সরকারি হজযাত্রীদের জন্যঃ</div>
+						<ul class="application-step">
+							<li>ইউনিয়ন তথ্যসেবা কেন্দ্র</li>
+							<li>জেলা প্রশাসকের কার্যালয়</li>
+							<li>ইসলামিক ফাউন্ডেশণের কার্যালয়</li>
+							<li>পরিচালক, হজ অফিস, ঢাকা।</li>
+						</ul>
+						<div class="application-next-instr">বেসরকারি হজযাত্রীদের জন্যঃ</div>
+						<ul class="application-step">
+							<li>ধর্ম বিষয়ক মন্ত্রণালয়ের অনুমোদিত বৈধ হজ এজেন্সির সংঙ্গে যোগাযোগ করুন।</li>
+						</ul>
+						<div class="application-next-instr">এবং ধাপ-৩ অনুসরণ করুন।</div>
 					</div>
-					<div class="application-next-instr">সরকারি হজযাত্রীদের জন্যঃ</div>
-					<ul class="application-step">
-						<li>ইউনিয়ন তথ্যসেবা কেন্দ্র</li>
-						<li>জেলা প্রশাসকের কার্যালয়</li>
-						<li>ইসলামিক ফাউন্ডেশণের কার্যালয়</li>
-						<li>পরিচালক, হজ অফিস, ঢাকা।</li>
-					</ul>
-					<div class="application-next-instr">বেসরকারি হজযাত্রীদের জন্যঃ</div>
-					<ul class="application-step">
-						<li>ধর্ম বিষয়ক মন্ত্রণালয়ের অনুমোদিত বৈধ হজ এজেন্সির সংঙ্গে যোগাযোগ করুন।</li>
-					</ul>
-					<div class="application-next-instr">এবং ধাপ-৩ অনুসরণ করুন।</div>
 				</div>
-				<div class="col-md-3 col-sm-3 col-xs-12 col-no-padding odd">
-					<div class="process-top">
-						<div class="process-number">৩</div>
-						<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/home-icon.png" class="img-responsive" width="56" height="auto"/></div>
-						<div class="process-rule">টাকা জমা</div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="col-no-padding odd">
+						<div class="process-top">
+							<div class="process-number">৩</div>
+							<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/home-icon.png" class="img-responsive" width="56" height="auto"/></div>
+							<div class="process-rule">টাকা জমা</div>
+						</div>
+						<ul class="application-step">
+							<li>ধাপ-২ থেকে প্রাপ্ত ট্র্যাকিং নম্বরযুক্ত কাগজ সহ ফি ও জামানতের টাকা নির্ধারিত ব্যাংকে জমা দিন।</li>
+						</ul>
+						<div class="application-next-instr">নির্ধারিত সময়ের মধ্যে টাকা জমা না দিলে ধাপ-১ থেকে শুরু করুন।</div>
 					</div>
-					<ul class="application-step">
-						<li>ধাপ-২ থেকে প্রাপ্ত ট্র্যাকিং নম্বরযুক্ত কাগজ সহ ফি ও জামানতের টাকা নির্ধারিত ব্যাংকে জমা দিন।</li>
-					</ul>
-					<div class="application-next-instr">নির্ধারিত সময়ের মধ্যে টাকা জমা না দিলে ধাপ-১ থেকে শুরু করুন।</div>
 				</div>
-				<div class="col-md-3 col-sm-3 col-xs-12 col-no-padding even">
-					<div class="process-top">
-						<div class="process-number">৪</div>
-						<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/mobile-icon.png" class="img-responsive" width="42" height="auto"/></div>
-						<div class="process-rule">নিশ্চিতকরন</div>
+				<div class="col-md-3 col-sm-3 col-xs-12">
+					<div class="col-no-padding even">
+						<div class="process-top">
+							<div class="process-number">৪</div>
+							<div class="process-icon"><img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/mobile-icon.png" class="img-responsive" width="42" height="auto"/></div>
+							<div class="process-rule">নিশ্চিতকরন</div>
+						</div>
+						<ul class="application-step">
+							<li>ব্যাংক থেকে হজের প্রাক-নিবন্ধন সনদ এবং আপনার মোবাইল নম্বরে এস এম এস পেলে নিশ্চিত হবেন যে, আপনার প্রাক-নিবন্ধন সম্পন্ন হয়েছে।</li>
+							<li>এছাড়াও আপনি অপনার ট্র্যাকিং নম্বর দিয়ে হজের ওয়েবসাইটে অনুসন্ধানের মাধ্যমে আপনার টাকা জমা দেওয়ার বিষয়টি নিশ্চিত হতে পারবেন।</li>
+						</ul>
 					</div>
-					<ul class="application-step">
-						<li>ব্যাংক থেকে হজের প্রাক-নিবন্ধন সনদ এবং আপনার মোবাইল নম্বরে এস এম এস পেলে নিশ্চিত হবেন যে, আপনার প্রাক-নিবন্ধন সম্পন্ন হয়েছে।</li>
-						<li>এছাড়াও আপনি অপনার ট্র্যাকিং নম্বর দিয়ে হজের ওয়েবসাইটে অনুসন্ধানের মাধ্যমে আপনার টাকা জমা দেওয়ার বিষয়টি নিশ্চিত হতে পারবেন।</li>
-					</ul>
 				</div>
 			</div>
 		</div>
@@ -352,14 +360,17 @@ get_header();
 	<div id="usefullLink" class="usefull-link-area">
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8">
+			<div class="col-md-3">
+				<?php get_sidebar('left'); ?>
+			</div>
+				<div class="col-md-6">
 					<div class="area-padding">
 						<div class="section-headline text-left">
 							<h2>
 								<?php if(qtrans_getLanguage() == "en"){ ?>
 									Useful Links
 								<?php } else { ?>
-									গুরুত্বপূর্ণ ওয়েবসাইট
+									গুরুত্বপূর্ণ লিংক
 								<?php } ?>
 							</h2>
 						</div>
@@ -396,7 +407,7 @@ get_header();
 											</div>
 										</div>
 										<div class="team-content text-left">
-											<h4><a href="<?php echo $navItem->url; ?>" title="<?php echo $navItem->title; ?>"><?php echo $navItem->title; ?> <i class="fa fa-angle-right"></i></a></h4>
+											<h4><a href="<?php echo $navItem->url; ?>" title="<?php echo $navItem->title; ?>"><?php echo $navItem->title; ?></a></h4>
 										</div>
 									</div>
 								</div>
@@ -409,7 +420,7 @@ get_header();
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4">
+				<div class="col-md-3">
 					 <?php get_sidebar(); ?>
 			    </div>
 			</div>
@@ -433,15 +444,17 @@ get_header();
 						<p>
 							If you would like to learn more about the rituals of Hajj, please download our Hajj Guide app fromt he Play Store.
 						</p>
-						<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12 pull-left">
-							<a target="_blank" href="https://itunes.apple.com/sa/app/haj-guide/id1387764857?mt=8">
-								<img class="img-responsive" src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/apple-store-logo.png" align="Pilgrim guide mobile app">
-							</a>
-						</div>
-						<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12 pull-left">
-							<a href="https://play.google.com/store/apps/details?id=com.bat.pilgrimguide" target="_blank" alt="Hajj Guide" title="Hajj Guide">
-								<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/google-pay-pilgrim-guide.png" class="img-responsive"/>
-							</a>
+						<div class="row">
+							<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12 pull-left">
+								<a target="_blank" href="https://itunes.apple.com/sa/app/haj-guide/id1387764857?mt=8">
+									<img class="img-responsive" src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/apple-store-logo.png" align="Pilgrim guide mobile app">
+								</a>
+							</div>
+							<div class="col-lg-3 col-md-3 col-sm-3 col-sx-12 pull-left">
+								<a href="https://play.google.com/store/apps/details?id=com.bat.pilgrimguide" target="_blank" alt="Hajj Guide" title="Hajj Guide">
+									<img src="<?php esc_url( bloginfo( 'template_url' ) ); ?>/img/google-pay-pilgrim-guide.png" class="img-responsive"/>
+								</a>
+							</div>
 						</div>
 					</div>
 				</div>

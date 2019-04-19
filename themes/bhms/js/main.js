@@ -270,7 +270,7 @@ function date_time(id,time_zone)
 {
 	var moment_time = moment();
 	var display_time    = moment_time.tz(time_zone).format('LT');
-	document.getElementById(id).innerHTML = display_time;
-	setTimeout('date_time("'+id+'","'+time_zone+'");','1000');
+	//document.getElementById(id).innerHTML = display_time;
+	//setTimeout('date_time("'+id+'","'+time_zone+'");','1000');
 	return true;
 }

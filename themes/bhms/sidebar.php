@@ -12,27 +12,18 @@
 //}
 ?>
 
-<aside id="secondary" class="widget-area">
+<aside id="secondary" class="widget-area right-sidebar">
 	<?php //dynamic_sidebar( 'sidebar-1' ); ?>
-	
-	<div style="background:#F1F1F1;padding:8px 17px 17px;">
-		<div class="section-headline text-left">
-			<h2>
-				<?php if(qtrans_getLanguage() == "en"){ ?>
-					Weather
-				<?php } else { ?>
-					আবহাওয়া
-				<?php } ?>
-			</h2>
-		</div>
+	<div class="services1 hajjContact">
+		<div class="cont-header"><h2><?php _e ('<!--:en-->Weather<!--:--><!--:bn-->আবহাওয়া<!--:-->') ?></h2></div>
 		<div class="weather text-left">
-			<div class="weather-inner" style="margin-bottom: 10px;">
+			<div class="col-sm-12 col-md-12 col-lg-12 top-pad weather-inner">
 				<?php 
 					echo do_shortcode( '[awesome-weather location="Dhaka" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
 				?>
 			</div>
 
-			<div class="weather-inner">
+			<div class="col-sm-12 col-md-12 col-lg-12 top-pad bottom-pad weather-inner">
 				<?php 
 					echo do_shortcode( '[awesome-weather location="Mecca" units="C" size="wide" background_by_weather="1" inline_style="width:100%;" hide_stats="1" custom_bg_color="#ffffff" text_color="#000"]' );
 				?>
